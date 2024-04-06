@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class waveFunctionCollapse : MonoBehaviour
 {
     public const int NUM_TILES = 20;
@@ -34,7 +35,6 @@ public class waveFunctionCollapse : MonoBehaviour
         {
             for (int j = 0; j < MAP_SIZE; j++)
             {
-                mapTileInfo[i, j] = new Tile(tileNames);
                 map[i, j] = tiles[Random.Range(0, NUM_TILES)];
                 Instantiate(map[i, j], new Vector3(TILE_SIZE * i, 0, TILE_SIZE * j), Quaternion.Euler(new Vector3(-90, 0, 0)));
             }
