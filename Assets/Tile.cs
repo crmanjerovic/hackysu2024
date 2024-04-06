@@ -1,12 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Tile
 {
     private int entropy;
-    private List<string> possibleTiles = new List<string>();
+    private List<string> possibleTiles;
     private List<(int x, int y)> directions = new List<(int x, int y)>();
 
     public Tile(string[] tileNames) 
     {
-        possibleTiles = tileNames.ToList();
+        possibleTiles = new List<string>(tileNames);
         entropy = tileNames.Length;
     }
 
@@ -37,7 +41,7 @@ public class Tile
 
     public string collapse() {
         // select weighted random from possibleTiles
-        string tileName = possibleTiles[Random.Range(0, possibleTiles.Length)];
+        string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
         entropy = 0;
         return tileName;
     }
