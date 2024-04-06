@@ -2,36 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile
-{
-    public Tile(string[] tileNames)
-    {
-
-    }
-
-    public int getEntropy()
-    {
-        return 0;
-    }
-
-    public int collapse()
-    {
-        return 0;
-    }
-
-    public bool constrain()
-    {
-        return false;
-    }
-
-    public int[] getDirections()
-    {
-        return 0;
-    }
-}
-
-
-
 public class waveFunctionCollapse : MonoBehaviour
 {
     public const int NUM_TILES = 20;
