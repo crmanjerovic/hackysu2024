@@ -5,16 +5,12 @@ using UnityEngine;
 
 public class waveFunctionCollapse : MonoBehaviour
 {
-    public const int NUM_TILES = 20;
+    public const int NUM_TILES = 3;
     public const float TILE_SIZE = 2f;
     public const int MAP_SIZE = 30;
 
     public GameObject[] tiles = new GameObject[NUM_TILES]; //array of gameobjects
     string[] tileNames = new string[NUM_TILES]; //array of tile names
-
-    public Dictionary<string, GameObject> tileTypes = new Dictionary<string, GameObject>(); //associates names with gameObjects
-
-    GameObject[,] map = new GameObject[MAP_SIZE, MAP_SIZE]; //stores gameobjects to be instantiated in the scene
 
     Tile[,] mapTileInfo = new Tile[MAP_SIZE, MAP_SIZE];
 
@@ -35,8 +31,7 @@ public class waveFunctionCollapse : MonoBehaviour
         {
             for (int j = 0; j < MAP_SIZE; j++)
             {
-                map[i, j] = tiles[Random.Range(0, NUM_TILES)];
-                Instantiate(map[i, j], new Vector3(TILE_SIZE * i, 0, TILE_SIZE * j), Quaternion.Euler(new Vector3(-90, 0, 0)));
+                mapTileInfo[i, j] = new Tile(tileNames, i, j);
             }
         }
     }
@@ -54,7 +49,7 @@ public class waveFunctionCollapse : MonoBehaviour
             {
                 for (int j = 0; j < MAP_SIZE; j++)
                 {
-                    if (mapTileInfo[i, j].getEntropy() < lowestValue)
+                    if (mapTileInfo[i, j].getEntropy() < lowestValue && mapTileInfo[i, j].getEntropy() != 0)
                         lowestValue = mapTileInfo[i, j].getEntropy();
                 }
             }
@@ -80,7 +75,19 @@ public class waveFunctionCollapse : MonoBehaviour
 
             //Collapse tile (decide on a type) and place it in the scene
             tileToCollapse.collapse();
-            //Instantiate(, new Vector3(TILE_SIZE * i, 0, TILE_SIZE * j), Quaternion.Euler(new Vector3(-90, 0, 0)));
+
+            List<string> instantiateThis = new List<string>();
+            instantiateThis = tileToCollapse.getPossibleTiles();
+            int tileNumToInstantiate = 0;
+            for (int i = 0; i < NUM_TILES; i++)
+            {
+                if (tileNames[i] == instantiateThis[0])
+                    tileNumToInstantiate = i;
+            }
+            float instantiateHereX = TILE_SIZE * tileToCollapse.getX();
+            float instantiateHereY = TILE_SIZE * tileToCollapse.getY();
+            Debug.Log(tileToCollapse.getX());
+            Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0)));
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             Stack<Tile> stack = new Stack<Tile>();
@@ -90,13 +97,12 @@ public class waveFunctionCollapse : MonoBehaviour
             {
                 Tile currentTile = stack.Pop();
                 List<(int x, int y)> directions = new List<(int x, int y)>();
-                currentTile.addDirections(ttcx, ttcy, MAP_SIZE);
-                directions = currentTile.getDirections();
+                directions = currentTile.getDirections(MAP_SIZE);
 
                 for (int i = 0; i < directions.Count; i++)
                 {
-                    Tile neighbor = currentTile.getNeighbor(directions[i]);
-                    if (neighbor.constrain())
+                    Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
+                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i]))
                         stack.Push(neighbor);
                 }
             }
