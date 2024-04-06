@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Tiles/flowers.fbx.meta
-guid: 31e2f294f34204b4c964aacd5d6fa519
-========
-guid: 5c11e16121846704fa9aa27862607a1a
->>>>>>>> f573e4edc048b6bd41996ff9c064d7958af21bfa:Assets/Tiles/archX.fbx.meta
+guid: 5effa900220aef546a9854d2b11fbb5a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
