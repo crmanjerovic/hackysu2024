@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.34081018, g: 0.20804459, b: 0.13049236, a: 1}
+  m_IndirectSpecularColor: {r: 0.3408102, g: 0.20804447, b: 0.13049233, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -432,28 +432,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 4886888199307379397, guid: 0ebfa9ca070561f4693299e05db60954, type: 3}
-  - {fileID: 3515565066384531218, guid: 0c5a822f90b9586438ca616560736ba6, type: 3}
-  - {fileID: 7859806793382491386, guid: 313c74af95a6bb540b2f32ee1c95a192, type: 3}
-  - {fileID: 5548824421438256926, guid: 63db4ddd1d726a145a1df6c5a193f5c7, type: 3}
-  - {fileID: 6646579763842662797, guid: 0a3db0bafe7cd064f824b97a05c74fd1, type: 3}
-  - {fileID: 2785294825515513993, guid: 0428059433a2be0478e1566ee4fae11f, type: 3}
-  - {fileID: 9016606224477524988, guid: 5d0640ac0df71e344a2e84eb286ddca3, type: 3}
-  - {fileID: 1993351828552413716, guid: 30796669408954e478e42e23798addb5, type: 3}
-  - {fileID: 7686624625540706658, guid: 708cd1687bdd7ef42a0f06e6780c1192, type: 3}
-  - {fileID: 300065589259978252, guid: bf87228df33871c4296effe5f37536b6, type: 3}
-  - {fileID: 4039224665507851510, guid: 939f58b303f5e9645836fa5e421232dc, type: 3}
-  - {fileID: 7793242212650548719, guid: 889924df50e718f48aa6eabcd6a49ec5, type: 3}
-  - {fileID: 1458690743302903992, guid: a74b841401fb6864c92bd7d16745db34, type: 3}
-  - {fileID: 2263693620655088860, guid: daa86dac0b6ad974cbebde803017f127, type: 3}
-  - {fileID: 2524631415874325110, guid: ed23d83c380a9114e8c66cbfa9cef2f8, type: 3}
-  - {fileID: 4644903098303887889, guid: dc04ca0a9729a0246ac8fcfa2041ee2a, type: 3}
-  - {fileID: 2292409204313261123, guid: 008a2bed5d6ef8c4f950fa4a8321425a, type: 3}
-  - {fileID: 2913946578821370679, guid: dcfdee582317e98429897c370c00b31d, type: 3}
-  - {fileID: 8043336279155362035, guid: 054b37748a937e64daa9d8d21691354b, type: 3}
-  - {fileID: 2544416169355537754, guid: 251d8a40fccf92d44b5ef6a67ab7824e, type: 3}
-  - {fileID: 7018010820131269659, guid: 40b2887c467df784c9f198735232335c, type: 3}
-  - {fileID: 4874408745305609795, guid: 662a8ab8cbf1b304fab1aa181aa1a422, type: 3}
+  - {fileID: 919132149155446097, guid: ab521b451ceb72d448aee33f1c264a7b, type: 3}
+  - {fileID: 919132149155446097, guid: 94a537d1fd048e34dab3c0421e333c8f, type: 3}
+  - {fileID: 919132149155446097, guid: b2a3f74b07986fb4e9951af77204d598, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
