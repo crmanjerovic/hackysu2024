@@ -25,7 +25,7 @@ public class waveFunctionCollapse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i < NUM_TILES; i++) //have an array of tiles names for readability
+        for (int i = 0; i < NUM_TILES; i++) //have an array of tiles names for readability
         {
             tileNames[i] = tiles[i].name;
         }
@@ -47,7 +47,8 @@ public class waveFunctionCollapse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isNetEntropyZero) {
+        if (!isNetEntropyZero)
+        {
             //GET SPACE WITH LOWEST ENTROPY--------------------------------------------------------------------------------
             //Iterate through, get lowest value
             int lowestValue = NUM_TILES + 1;
@@ -73,6 +74,7 @@ public class waveFunctionCollapse : MonoBehaviour
                 }
             }
 
+
             //COLLAPSE THE TILE AND PLACE IT------------------------------------------------------------------------------------------
             int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count); //choose which tile to collapse randomly from list
             int ttcx = tilesWithLowestEntropy[whichTileToCollapse].x; //get the tile to collapse's coordinates
@@ -90,12 +92,13 @@ public class waveFunctionCollapse : MonoBehaviour
                 if (tileNames[i] == instantiateThis)
                     tileNumToInstantiate = i;
             }
-           
+
             //instantiate tile a fixed multiple of the coordinates away
             float instantiateHereX = TILE_SIZE * ttcx;
             float instantiateHereY = TILE_SIZE * ttcy;
             //save the gameobject in the map in case it needs to be deleted
             map[ttcx, ttcy] = Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0))); //needs to be rotated because of how the models transfered to unity
+
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             //update the entropy and possible tiles of each space on the board based on the tile just selected
@@ -111,43 +114,25 @@ public class waveFunctionCollapse : MonoBehaviour
                 for (int i = 0; i < directions.Count; i++) //iterate through each of the directions we just got
                 {
                     Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
-                    
+
                     if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list)) //if the neighbor's entropy is reduced at all
                     {
-                        if (stack.Peek().getEntropy() == 0) //if the neighbor's entropy goes to 0 from this, we have a contradiction and need to restart
-                            abort = true;
+                        Debug.Log("Pushed to Stack");
                         stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything
                     }
                 }
 
-            }
-
-            //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
-            int highestValue = 0;
-            for (int i = 0; i < MAP_SIZE; i++)
-            {
-                for (int j = 0; j < MAP_SIZE; j++)
-                {
-                    if (mapTileInfo[i, j].getEntropy() > highestValue)
-                        highestValue = mapTileInfo[i, j].getEntropy();
-                }
-            }
-            if (highestValue == 0) isNetEntropyZero = true;
-
-            //ABORT THE ALGORITHM IN CASE OF CONTRADICTION--------------------------------------------------------------------------
-            if (abort)
-            {
-                isNetEntropyZero = false;
-                abort = false;
-
+                //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
+                int highestValue = 0;
                 for (int i = 0; i < MAP_SIZE; i++)
                 {
                     for (int j = 0; j < MAP_SIZE; j++)
                     {
-                        mapTileInfo[i, j] = new Tile(tileNames, i, j); //reset map info
-                        GameObject.Destroy(map[i, j]); //clear gameObjects
+                        if (mapTileInfo[i, j].getEntropy() > highestValue)
+                            highestValue = mapTileInfo[i, j].getEntropy();
                     }
                 }
+                if (highestValue == 0) isNetEntropyZero = true;
             }
         }
     }

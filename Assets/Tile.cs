@@ -39,6 +39,7 @@ public class Tile
 
     public List<(int x, int y)> getDirections(int MAP_SIZE)
     {
+        directions.Clear();
         if (x + 1 < MAP_SIZE)
         {
             directions.Add((1, 0));
@@ -60,7 +61,17 @@ public class Tile
     public string collapse()
     {
         // select weighted random from possibleTiles
-        string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
+        string tileName;
+        if (possibleTiles.Count > 0)
+            tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
+        else
+        {
+            tileName = "ground";
+            return tileName;
+        }
+
+        possibleTiles = new List<string>();
+        possibleTiles.Add(tileName);
         entropy = 0;
         return tileName;
     }
@@ -70,40 +81,40 @@ public class Tile
         // direction is other tile relative to this tile. The rules are read like (other, this, direction)
         bool modified = false;
 
-        if (entropy > 0)
+        // get all rules with tile1 in otherPossibleTiles and direction = direction and add them to new array
+        List<string> possibleTilesInRules = new List<string>();
+
+        for (int i = 0; i < otherPossibleTiles.Count; i++)
         {
-            // get all rules with tile1 in otherPossibleTiles and direction = direction and add them to new array
-            List<string> possibleTilesInRules = new List<string>();
-
-            for (int i = 0; i < otherPossibleTiles.Count; i++)
+            //string tile1 = otherPossibleTiles[i];
+            for (int j = 0; j < rules.Count; j++)
             {
-                string tile1 = otherPossibleTiles[i];
-                for (int j = 0; j < rules.Count; j++)
+                Debug.Log(rules[j].tile1);
+                if (rules[j].tile1 == otherPossibleTiles[i] &&
+                    rules[j].direction == direction)
                 {
-                    if (rules[j].tile1 == tile1 &&
-                        rules[j].direction == direction)
-                    {
-                        possibleTilesInRules.Add(rules[j].tile2);
-                    }
+                    possibleTilesInRules.Add(rules[j].tile2);
                 }
             }
-
-            // remove all this.possibleTiles not in possibleTilesInRules
-            for (int i = 0; i < possibleTiles.Count; i++)
-            {
-                for (int j = 0; j < possibleTilesInRules.Count; j++)
-                {
-                    if (possibleTiles[i] == possibleTilesInRules[j])
-                    {
-                        possibleTilesInRules.RemoveAt(i);
-                        modified = true;
-                        continue;
-                    }
-                }
-            }
-
-            entropy = this.possibleTiles.Count;
         }
+        Debug.Log(possibleTilesInRules.Count);
+
+        List<string> newPossibleTiles = new List<string>();
+        // remove all this.possibleTiles not in possibleTilesInRules
+        for (int i = 0; i < possibleTiles.Count; i++)
+        {
+            for (int j = 0; j < possibleTilesInRules.Count; j++)
+            {
+                if (possibleTiles[i] == possibleTilesInRules[j])
+                {
+                    newPossibleTiles.Add(possibleTiles[i]);
+                }
+            }
+        }
+
+        if (newPossibleTiles.Count < possibleTiles.Count) modified = true;
+        possibleTiles = newPossibleTiles;
+        entropy = this.possibleTiles.Count;
 
         return modified;
     }
