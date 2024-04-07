@@ -65,7 +65,7 @@ public class Tile
         return tileName;
     }
 
-    public bool constrain(List<string> neighborPossibleTiles, (int x, int y) direction)
+    public bool constrain(List<string> neighborPossibleTiles, (int x, int y) direction, List<TileRule> rules)
     {
         //direction is for this RELATIVE TO neighbor
 
@@ -73,34 +73,44 @@ public class Tile
 
         if (entropy > 0)
         {
-            //pick one possible tile
+            List<int> toBeRemoved = new List<int>();
             for (int i = 0; i < possibleTiles.Count; i++)
             {
                 for (int j = 0; j < neighborPossibleTiles.Count; j++)
                 {
-                        //compare possibleTile[i] to neighborPossibleTile[j] in direction direction
-                        //on a "success," set a bool saying not to delete possibleTile[i] from the list
-                    //if possibleTile[i] didn't match any, get rid of it and set modified to true
-                }
-
-                //flip direction
-                if (direction.x != 0) direction.x *= -1;
-                if (direction.x != 0) direction.x *= -1;
-
-                //do it in the opposite direction
-                for (int i = 0; i < neighborPossibleTiles.Count; i++)
-                {
-                    for (int j = 0; j < possibleTiles.Count; j++)
+                    bool isValid = false;
+                    for (int k = 0; k < rules.Count; k++)
                     {
-                        //compare NeighborPossibleTile[i] to possibleTile[j] in direction direction
+                        if (rules[k].tile1 == possibleTiles[i] && rules[k].tile2 == neighborPossibleTiles[j] && rules[k].direction == direction)
+                        {
+                            isValid = true;
+                        }
                     }
-                    //
+                    if (!isValid)
+                    {
+                        toBeRemoved.Add(i);
+                    }
                 }
-
+            }
+            for (int i=0; i < toBeRemoved.Count; i++)
+            {
+                possibleTiles.RemoveAt(toBeRemoved[i]);
+                entropy--;
             }
 
-            return modified;
-        }
+            /*/flip direction
+            if (direction.x != 0) direction.x *= -1;
+            if (direction.x != 0) direction.x *= -1;
 
+            //do it in the opposite direction
+            for (int i = 0; i < neighborPossibleTiles.Count; i++)
+            {
+                for (int j = 0; j < possibleTiles.Count; j++)
+                {
+                        //compare NeighborPossibleTile[i] to possibleTile[j] in direction direction
+                }
+            }*/
+        }
+        return modified;
     }
 }

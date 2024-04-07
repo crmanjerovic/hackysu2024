@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class waveFunctionCollapse : MonoBehaviour
 {
-    public const int NUM_TILES = 3;
-    public const float TILE_SIZE = 100 * 2f;
+    public const int NUM_TILES = 25;
+    public const float TILE_SIZE = 2f;
     public const int MAP_SIZE = 30;
 
     public GameObject[] tiles = new GameObject[NUM_TILES]; //array of gameobjects
@@ -111,7 +111,8 @@ public class waveFunctionCollapse : MonoBehaviour
                 for (int i = 0; i < directions.Count; i++) //iterate through each of the directions we just got
                 {
                     Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
-                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i])) //if the neighbor's entropy is reduced at all
+                    
+                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list)) //if the neighbor's entropy is reduced at all
                     {
                         if (stack.Peek().getEntropy() == 0) //if the neighbor's entropy goes to 0 from this, we have a contradiction and need to restart
                             abort = true;
