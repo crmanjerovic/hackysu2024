@@ -6,16 +6,18 @@ using UnityEngine;
 
 public class waveFunctionCollapse : MonoBehaviour
 {
-    public const int NUM_TILES = 3;
-    public const float TILE_SIZE = 100 * 2f;
+    public const int NUM_TILES = 25;
+    public const float TILE_SIZE = 2f;
     public const int MAP_SIZE = 30;
 
     public GameObject[] tiles = new GameObject[NUM_TILES]; //array of gameobjects
     string[] tileNames = new string[NUM_TILES]; //array of tile names
 
     Tile[,] mapTileInfo = new Tile[MAP_SIZE, MAP_SIZE];
+    GameObject[,] map = new GameObject[MAP_SIZE, MAP_SIZE];
 
     bool isNetEntropyZero = false;
+    bool abort = false;
 
     private TileRuleList rules;
 
@@ -66,53 +68,58 @@ public class waveFunctionCollapse : MonoBehaviour
                 {
                     if (mapTileInfo[i, j].getEntropy() == lowestValue)
                     {
-                        tilesWithLowestEntropy.Add((i, j));
+                        tilesWithLowestEntropy.Add((i, j)); //contains a variable length list of coordinate pairs, corresponding to the tiles with the lowest entropy.
                     }
                 }
             }
 
-            //CHOOSE AND COLLAPSE THE TILE------------------------------------------------------------------------------------------
-            int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count);
-            int ttcx = tilesWithLowestEntropy[whichTileToCollapse].x;
+            //COLLAPSE THE TILE AND PLACE IT------------------------------------------------------------------------------------------
+            int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count); //choose which tile to collapse randomly from list
+            int ttcx = tilesWithLowestEntropy[whichTileToCollapse].x; //get the tile to collapse's coordinates
             int ttcy = tilesWithLowestEntropy[whichTileToCollapse].y;
-            Tile tileToCollapse = mapTileInfo[ttcx, ttcy];
+            Tile tileToCollapse = mapTileInfo[ttcx, ttcy]; //get the tile object corresponding to the tile to collapse
 
-            //Collapse tile (decide on a type) and place it in the scene
-            tileToCollapse.collapse();
-
-            List<string> instantiateThis = new List<string>();
-            instantiateThis = tileToCollapse.getPossibleTiles();
+            //need to get the array index of the game object to instantiate from the tile object
+            string instantiateThis;
+            instantiateThis = tileToCollapse.collapse();
             int tileNumToInstantiate = 0;
+
+            //find the index corresponding to the name string of the tile type
             for (int i = 0; i < NUM_TILES; i++)
             {
-                if (tileNames[i] == instantiateThis[0])
+                if (tileNames[i] == instantiateThis)
                     tileNumToInstantiate = i;
             }
-            float instantiateHereX = TILE_SIZE * tileToCollapse.getX();
-            float instantiateHereY = TILE_SIZE * tileToCollapse.getY();
-            // Debug.Log(tileToCollapse.getX());
-            // Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0)));
+           
+            //instantiate tile a fixed multiple of the coordinates away
+            float instantiateHereX = TILE_SIZE * ttcx;
+            float instantiateHereY = TILE_SIZE * ttcy;
+            //save the gameobject in the map in case it needs to be deleted
+            map[ttcx, ttcy] = Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0))); //needs to be rotated because of how the models transfered to unity
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
+            //update the entropy and possible tiles of each space on the board based on the tile just selected
             Stack<Tile> stack = new Stack<Tile>();
-            stack.Push(tileToCollapse);
+            stack.Push(tileToCollapse); //put the tile we just set on the stack
 
             while (stack.Count > 0)
             {
                 Tile currentTile = stack.Pop();
                 List<(int x, int y)> directions = new List<(int x, int y)>();
-                directions = currentTile.getDirections(MAP_SIZE);
+                directions = currentTile.getDirections(MAP_SIZE); //get the valid directions surrounding the tile. Tiles located on edges or corner will only return 2 or 3 directions
 
-                for (int i=0; i<directions.Count; i++)
+                for (int i = 0; i < directions.Count; i++) //iterate through each of the directions we just got
                 {
-                    //get the neighbor of that tile in given direction
-                    int neighborX = currentTile.getX() + directions[i].x;
-                    int neighborY = currentTile.getY() + directions[i].y;
-                    Tile neighbor = mapTileInfo[neighborX, neighborY];
-                    bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list);
-                    if (constrained)
-                        stack.Push(neighbor);
+                    Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
+                    
+                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list)) //if the neighbor's entropy is reduced at all
+                    {
+                        if (stack.Peek().getEntropy() == 0) //if the neighbor's entropy goes to 0 from this, we have a contradiction and need to restart
+                            abort = true;
+                        stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything
+                    }
                 }
+
             }
 
             //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
@@ -126,6 +133,22 @@ public class waveFunctionCollapse : MonoBehaviour
                 }
             }
             if (highestValue == 0) isNetEntropyZero = true;
+
+            //ABORT THE ALGORITHM IN CASE OF CONTRADICTION--------------------------------------------------------------------------
+            if (abort)
+            {
+                isNetEntropyZero = false;
+                abort = false;
+
+                for (int i = 0; i < MAP_SIZE; i++)
+                {
+                    for (int j = 0; j < MAP_SIZE; j++)
+                    {
+                        mapTileInfo[i, j] = new Tile(tileNames, i, j); //reset map info
+                        GameObject.Destroy(map[i, j]); //clear gameObjects
+                    }
+                }
+            }
         }
     }
 }
