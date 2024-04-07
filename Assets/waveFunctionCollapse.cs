@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 
 public class waveFunctionCollapse : MonoBehaviour
 {
     public const int NUM_TILES = 3;
-    public const float TILE_SIZE = 2f;
+    public const float TILE_SIZE = 100 * 2f;
     public const int MAP_SIZE = 30;
 
     public GameObject[] tiles = new GameObject[NUM_TILES]; //array of gameobjects
@@ -16,7 +17,7 @@ public class waveFunctionCollapse : MonoBehaviour
 
     bool isNetEntropyZero = false;
 
-
+    private TileRuleList rules;
 
 
     // Start is called before the first frame update
@@ -34,8 +35,11 @@ public class waveFunctionCollapse : MonoBehaviour
                 mapTileInfo[i, j] = new Tile(tileNames, i, j);
             }
         }
-    }
 
+        string baseDirectory = Application.streamingAssetsPath;
+        string rulesFilePath = Path.Combine(baseDirectory, "tileRules.txt");
+        rules = new TileRuleList(rulesFilePath);
+    }
 
 
     // Update is called once per frame
@@ -86,7 +90,7 @@ public class waveFunctionCollapse : MonoBehaviour
             }
             float instantiateHereX = TILE_SIZE * tileToCollapse.getX();
             float instantiateHereY = TILE_SIZE * tileToCollapse.getY();
-            Debug.Log(tileToCollapse.getX());
+            //Debug.Log(tileToCollapse.getX());
             Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0)));
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------

@@ -42,13 +42,13 @@ public class Tile
         if (x+1 < MAP_SIZE) {
             directions.Add((1,0));
         }
-        if (x-1 > 0) {
+        if (x-1 >= 0) {
             directions.Add((-1,0));
         }
         if (y+1 < MAP_SIZE) {
             directions.Add((0,1));
         }
-        if (y-1 > 0) {
+        if (y-1 >= 0) {
             directions.Add((0,-1));
         }
 
@@ -80,6 +80,7 @@ public class Tile
                 }
                 //if possibleTile[i] didn't match any, get rid of it and set modified to true
             }
+
 
             //flip direction
             if (direction.x != 0) direction.x *= -1;
