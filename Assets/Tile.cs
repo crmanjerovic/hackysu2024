@@ -84,7 +84,12 @@ public class Tile
         }
 
         // select weighted random from possibleTiles
-        string tileName = possibleTiles[chosenIndex];
+        string tileName;
+        if (entropy != 0)
+            tileName = possibleTiles[chosenIndex];
+        else
+            tileName = "ground";
+
         this.possibleTiles = new List<string> {tileName};
         entropy = 0;
         return tileName;
@@ -94,7 +99,8 @@ public class Tile
                           (int x, int y) direction, 
                           Dictionary<string, List<TileRule>> rules)
     {
-        // direction is other tile relative to this tile. The rules are read like (other, this, direction)
+        // direction is other tile relative to this tile. 
+        // The rules are read like (tile1=other, tile2=this, direction)
         bool modified = false;
 
         if (entropy > 0)

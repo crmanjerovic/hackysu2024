@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8918120007997314733}
   - component: {fileID: 4220693038138237450}
   - component: {fileID: 6567074845192230064}
-  - component: {fileID: 4315238492974532196}
+  - component: {fileID: 4609492717100382041}
   m_Layer: 0
   m_Name: b_stairs_xneg
   m_TagString: Untagged
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149617807769686357}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -6, y: -1, z: 3}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 70.3678, y: 0.0022489903, z: -106.64785}
+  m_LocalScale: {x: 50, y: 90, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149617807769686357}
-  m_Mesh: {fileID: 2655573205219680081, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  m_Mesh: {fileID: 4493585093827132993, guid: b0ebf9759fa3c9e48b360f09550b6a29, type: 3}
 --- !u!23 &6567074845192230064
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3066036773791278492, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  - {fileID: 5313096204258746848, guid: b0ebf9759fa3c9e48b360f09550b6a29, type: 3}
+  - {fileID: -300609553297829232, guid: b0ebf9759fa3c9e48b360f09550b6a29, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4315238492974532196
+--- !u!64 &4609492717100382041
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,4 +106,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 2655573205219680081, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  m_Mesh: {fileID: 4493585093827132993, guid: b0ebf9759fa3c9e48b360f09550b6a29, type: 3}
