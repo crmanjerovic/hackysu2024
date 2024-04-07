@@ -9,7 +9,7 @@ public class Tile
     private List<(int x, int y)> directions = new List<(int x, int y)>();
     int x, y;
 
-    public Tile(string[] tileNames, int x, int y) 
+    public Tile(string[] tileNames, int x, int y)
     {
         possibleTiles = new List<string>(tileNames);
         entropy = tileNames.Length;
@@ -17,7 +17,7 @@ public class Tile
         this.y = y;
     }
 
-    public int getEntropy() 
+    public int getEntropy()
     {
         return entropy;
     }
@@ -39,23 +39,28 @@ public class Tile
 
     public List<(int x, int y)> getDirections(int MAP_SIZE)
     {
-        if (x+1 < MAP_SIZE) {
-            directions.Add((1,0));
+        if (x + 1 < MAP_SIZE)
+        {
+            directions.Add((1, 0));
         }
-        if (x-1 > 0) {
-            directions.Add((-1,0));
+        if (x - 1 > 0)
+        {
+            directions.Add((-1, 0));
         }
-        if (y+1 < MAP_SIZE) {
-            directions.Add((0,1));
+        if (y + 1 < MAP_SIZE)
+        {
+            directions.Add((0, 1));
         }
-        if (y-1 > 0) {
-            directions.Add((0,-1));
+        if (y - 1 > 0)
+        {
+            directions.Add((0, -1));
         }
 
         return directions;
     }
 
-    public string collapse() {
+    public string collapse()
+    {
         // select weighted random from possibleTiles
         string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
         entropy = 0;
@@ -71,33 +76,33 @@ public class Tile
         if (entropy > 0)
         {
             //pick one possible tile
-            for (int i = 0;  i < possibleTiles.Count; i++)
+            for (int i = 0; i < possibleTiles.Count; i++)
             {
                 for (int j = 0; j < neighborPossibleTiles.Count; j++)
                 {
-                    //compare possibleTile[i] to neighborPossibleTile[j] in direction direction
-                    //on a "success," set a bool saying not to delete possibleTile[i] from the list
+                        //compare possibleTile[i] to neighborPossibleTile[j] in direction direction
+                        //on a "success," set a bool saying not to delete possibleTile[i] from the list
+                    //if possibleTile[i] didn't match any, get rid of it and set modified to true
                 }
-                //if possibleTile[i] didn't match any, get rid of it and set modified to true
-            }
 
-            //flip direction
-            if (direction.x != 0) direction.x *= -1;
-            if (direction.x != 0) direction.x *= -1;
+                //flip direction
+                if (direction.x != 0) direction.x *= -1;
+                if (direction.x != 0) direction.x *= -1;
 
-            //do it in the opposite direction
-            for (int i = 0; i < neighborPossibleTiles.Count; i++)
-            {
-                for (int j = 0; j < possibleTiles.Count; j++)
+                //do it in the opposite direction
+                for (int i = 0; i < neighborPossibleTiles.Count; i++)
                 {
-                    //compare NeighborPossibleTile[i] to possibleTile[j] in direction direction
+                    for (int j = 0; j < possibleTiles.Count; j++)
+                    {
+                        //compare NeighborPossibleTile[i] to possibleTile[j] in direction direction
+                    }
+                    //
                 }
-                //
+
             }
 
+            return modified;
         }
 
-         return modified;
     }
-
 }
