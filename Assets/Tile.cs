@@ -43,17 +43,15 @@ public class Tile
         {
             directions.Add((1, 0));
         }
-        if (x - 1 > 0)
-        {
-            directions.Add((-1, 0));
+        if (x-1 >= 0) {
+            directions.Add((-1,0));
         }
         if (y + 1 < MAP_SIZE)
         {
             directions.Add((0, 1));
         }
-        if (y - 1 > 0)
-        {
-            directions.Add((0, -1));
+        if (y-1 >= 0) {
+            directions.Add((0,-1));
         }
 
         return directions;

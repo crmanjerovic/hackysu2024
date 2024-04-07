@@ -1,0 +1,183 @@
+// possible tiles:
+//
+// ground
+//
+// b_corner
+//
+// b_arch_x
+// b_arch_y
+// b_path_x
+// b_path_y
+//
+// b_stairs_xneg
+// b_stairs_xpos
+// b_stairs_yneg
+// b_stairs_ypos
+ 
+////////////////////////////
+ 
+ground, ground, 1,0
+ground, ground, -1,0
+ground, ground, 0,1
+ground, ground, 0,-1
+ 
+ground, b_corner, 1,0
+ground, b_corner, -1,0
+ground, b_corner, 0,1
+ground, b_corner, 0,-1
+ 
+ground, b_arch_x, 0,1
+ground, b_arch_x, 0,-1
+ground, b_arch_y, 1,0
+ground, b_arch_y, -1,0
+ 
+ground, b_path_x, 0,1
+ground, b_path_x, 0,-1
+ground, b_path_y, 1,0
+ground, b_path_y, -1,0
+ 
+ground, b_stairs_xneg, 1,0
+ground, b_stairs_xneg, 0,1
+ground, b_stairs_xneg, 0,-1
+ 
+ground, b_stairs_xpos, -1,0
+ground, b_stairs_xpos, 0,1
+ground, b_stairs_xpos, 0,-1
+ 
+ground, b_stairs_yneg, 1,0
+ground, b_stairs_yneg, -1,0
+ground, b_stairs_yneg, 0,1
+ 
+ground, b_stairs_ypos, 1,0
+ground, b_stairs_ypos, -1,0
+ground, b_stairs_ypos, 0,-1
+ 
+////////////////////////////
+ 
+b_corner, ground, 1,0
+b_corner, ground, -1,0
+b_corner, ground, 0,1
+b_corner, ground, 0,-1
+ 
+b_corner, b_arch_x, 1,0
+b_corner, b_arch_x, -1,0
+b_corner, b_arch_y, 0,1
+b_corner, b_arch_y, 0,-1
+ 
+b_corner, b_path_x, 1,0
+b_corner, b_path_x, -1,0
+b_corner, b_path_y, 0,1
+b_corner, b_path_y, 0,-1
+ 
+b_corner, b_stairs_xneg, -1,0
+b_corner, b_stairs_xpos, 1,0
+b_corner, b_stairs_yneg, 0,-1
+b_corner, b_stairs_ypos, 0,1
+ 
+////////////////////////////
+ 
+b_arch_x, ground, 0,1
+b_arch_x, ground, 0,-1
+ 
+b_arch_x, b_corner, 1,0
+b_arch_x, b_corner, -1,0
+ 
+b_arch_x, b_arch_x, 1,0
+b_arch_x, b_arch_x, -1,0
+ 
+b_arch_x, b_path_x, 1,0
+b_arch_x, b_path_x, -1,0
+ 
+b_arch_x, b_stairs_xneg, -1,0
+b_arch_x, b_stairs_xpos, 1,0
+ 
+////////////////////////////
+ 
+b_arch_y, ground, 1,0
+b_arch_y, ground, -1,0
+ 
+b_arch_y, b_corner, 0,1
+b_arch_y, b_corner, 0,-1
+ 
+b_arch_y, b_arch_y, 0,1
+b_arch_y, b_arch_y, 0,-1
+ 
+b_arch_y, b_path_y, 0,1
+b_arch_y, b_path_y, 0,-1
+ 
+b_arch_y, b_stairs_yneg, 0,-1
+b_arch_y, b_stairs_ypos, 0,1
+ 
+//////////////////////////////
+ 
+b_path_x, ground, 0,1
+b_path_x, ground, 0,-1
+ 
+b_path_x, b_corner, 1,0
+b_path_x, b_corner, -1,0
+ 
+b_path_x, b_arch_x, 1,0
+b_path_x, b_arch_x, -1,0
+ 
+b_path_x, b_path_x, 1,0
+b_path_x, b_path_x, -1,0
+ 
+b_path_x, b_stairs_xneg, -1,0
+b_path_x, b_stairs_xpos, 1,0
+ 
+////////////////////////////
+ 
+b_path_y, ground, 1,0
+b_path_y, ground, -1,0
+ 
+b_path_y, b_corner, 0,1
+b_path_y, b_corner, 0,-1
+ 
+b_path_y, b_arch_y, 0,1
+b_path_y, b_arch_y, 0,-1
+ 
+b_path_y, b_path_y, 0,1
+b_path_y, b_path_y, 0,-1
+ 
+b_path_y, b_stairs_yneg, 0,-1
+b_path_y, b_stairs_ypos, 0,1
+ 
+/////////////////////////////
+ 
+b_stairs_xneg, ground, 1,0
+b_stairs_xneg, ground, 0,1
+b_stairs_xneg, ground, 0,-1
+ 
+b_stairs_xneg, b_corner, 1,0
+b_stairs_xneg, b_arch_x, 1,0
+b_stairs_xneg, b_path_x, 1,0
+ 
+////////////////////////////
+ 
+b_stairs_yneg, ground, 0,1
+b_stairs_yneg, ground, 1,0
+b_stairs_yneg, ground, -1,0
+ 
+b_stairs_yneg, b_corner, 0,1
+b_stairs_yneg, b_arch_y, 0,1
+b_stairs_yneg, b_path_y, 0,1
+ 
+/////////////////////////////
+ 
+b_stairs_xpos, ground, -1,0
+b_stairs_xpos, ground, 0,-1
+b_stairs_xpos, ground, 0,1
+ 
+b_stairs_xpos, b_corner, -1,0
+b_stairs_xpos, b_arch_x, -1,0
+b_stairs_xpos, b_path_x, -1,0
+ 
+////////////////////////////
+ 
+b_stairs_ypos, ground, 0,-1
+b_stairs_ypos, ground, -1,0
+b_stairs_ypos, ground, 1,0
+ 
+b_stairs_ypos, b_corner, 0,-1
+b_stairs_ypos, b_arch_y, 0,-1
+b_stairs_ypos, b_path_y, 0,-1
