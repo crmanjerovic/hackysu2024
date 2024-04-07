@@ -39,14 +39,15 @@ public class Tile
 
     public List<(int x, int y)> getDirections(int MAP_SIZE)
     {
-        if (x + 1 < MAP_SIZE)
+        this.directions.Clear();
+        if (x+1 < MAP_SIZE)
         {
             directions.Add((1, 0));
         }
         if (x-1 >= 0) {
             directions.Add((-1,0));
         }
-        if (y + 1 < MAP_SIZE)
+        if (y+1 < MAP_SIZE)
         {
             directions.Add((0, 1));
         }
@@ -61,6 +62,7 @@ public class Tile
     {
         // select weighted random from possibleTiles
         string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
+        this.possibleTiles = new List<string> {tileName};
         entropy = 0;
         return tileName;
     }
@@ -80,6 +82,7 @@ public class Tile
                 string tile1 = otherPossibleTiles[i];
                 for (int j = 0; j < rules.Count; j++)
                 {
+                    Debug.Log(rules[j].direction);
                     if (rules[j].tile1 == tile1 &&
                         rules[j].direction == direction)
                     {
@@ -88,20 +91,21 @@ public class Tile
                 }
             }
 
-            // remove all this.possibleTiles not in possibleTilesInRules
+            // get intersection of this.possibleTiles and possibleTilesInRules
+            List<string> newPossibleTiles = new List<string>();
             for (int i = 0; i < possibleTiles.Count; i++)
             {
                 for (int j = 0; j < possibleTilesInRules.Count; j++)
                 {
                     if (possibleTiles[i] == possibleTilesInRules[j])
                     {
-                        possibleTilesInRules.RemoveAt(i);
-                        modified = true;
-                        continue;
+                        newPossibleTiles.Add(possibleTilesInRules[j]);
+                        //modified = true;
                     }
                 }
             }
 
+            this.possibleTiles = newPossibleTiles;
             entropy = this.possibleTiles.Count;
         }
 
