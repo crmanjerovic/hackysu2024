@@ -39,15 +39,15 @@ public class Tile
 
     public List<(int x, int y)> getDirections(int MAP_SIZE)
     {
-        directions.Clear();
-        if (x + 1 < MAP_SIZE)
+        this.directions.Clear();
+        if (x+1 < MAP_SIZE)
         {
             directions.Add((1, 0));
         }
         if (x-1 >= 0) {
             directions.Add((-1,0));
         }
-        if (y + 1 < MAP_SIZE)
+        if (y+1 < MAP_SIZE)
         {
             directions.Add((0, 1));
         }
@@ -61,17 +61,8 @@ public class Tile
     public string collapse()
     {
         // select weighted random from possibleTiles
-        string tileName;
-        if (possibleTiles.Count > 0)
-            tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
-        else
-        {
-            tileName = "ground";
-            return tileName;
-        }
-
-        possibleTiles = new List<string>();
-        possibleTiles.Add(tileName);
+        string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
+        this.possibleTiles = new List<string> {tileName};
         entropy = 0;
         return tileName;
     }
@@ -93,23 +84,35 @@ public class Tile
                 if (rules[j].tile1 == otherPossibleTiles[i] &&
                     rules[j].direction == direction)
                 {
-                    possibleTilesInRules.Add(rules[j].tile2);
+                    Debug.Log(rules[j].direction);
+                    if (rules[j].tile1 == tile1 &&
+                        rules[j].direction == direction)
+                    {
+                        possibleTilesInRules.Add(rules[j].tile2);
+                    }
+
                 }
             }
         }
         Debug.Log(possibleTilesInRules.Count);
 
-        List<string> newPossibleTiles = new List<string>();
-        // remove all this.possibleTiles not in possibleTilesInRules
-        for (int i = 0; i < possibleTiles.Count; i++)
-        {
-            for (int j = 0; j < possibleTilesInRules.Count; j++)
+<
+            // get intersection of this.possibleTiles and possibleTilesInRules
+            List<string> newPossibleTiles = new List<string>();
+            for (int i = 0; i < possibleTiles.Count; i++)
             {
                 if (possibleTiles[i] == possibleTilesInRules[j])
                 {
-                    newPossibleTiles.Add(possibleTiles[i]);
+                    if (possibleTiles[i] == possibleTilesInRules[j])
+                    {
+                        newPossibleTiles.Add(possibleTilesInRules[j]);
+                        //modified = true;
+                    }
                 }
             }
+
+            this.possibleTiles = newPossibleTiles;
+            entropy = this.possibleTiles.Count;
         }
 
         if (newPossibleTiles.Count < possibleTiles.Count) modified = true;

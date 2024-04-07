@@ -25,7 +25,9 @@ public class waveFunctionCollapse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < NUM_TILES; i++) //have an array of tiles names for readability
+        // create an array of tiles names for readability
+        for (int i=0; i < NUM_TILES; i++) 
+
         {
             tileNames[i] = tiles[i].name;
         }
@@ -69,7 +71,8 @@ public class waveFunctionCollapse : MonoBehaviour
                 {
                     if (mapTileInfo[i, j].getEntropy() == lowestValue)
                     {
-                        tilesWithLowestEntropy.Add((i, j)); //contains a variable length list of coordinate pairs, corresponding to the tiles with the lowest entropy.
+                        //contains a variable length list of coordinate pairs, corresponding to the tiles with the lowest entropy.
+                        tilesWithLowestEntropy.Add((i, j)); 
                     }
                 }
             }
@@ -97,8 +100,11 @@ public class waveFunctionCollapse : MonoBehaviour
             float instantiateHereX = TILE_SIZE * ttcx;
             float instantiateHereY = TILE_SIZE * ttcy;
             //save the gameobject in the map in case it needs to be deleted
-            map[ttcx, ttcy] = Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0))); //needs to be rotated because of how the models transfered to unity
-
+            //needs to be rotated because of how the models transfered to unity
+            map[ttcx, ttcy] = Instantiate(tiles[tileNumToInstantiate], 
+                                          new Vector3(instantiateHereX, 0, instantiateHereY), 
+                                          Quaternion.Euler(new Vector3(-90, 0, 0)));
+                                        
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             //update the entropy and possible tiles of each space on the board based on the tile just selected
@@ -108,17 +114,22 @@ public class waveFunctionCollapse : MonoBehaviour
             while (stack.Count > 0)
             {
                 Tile currentTile = stack.Pop();
-                List<(int x, int y)> directions = new List<(int x, int y)>();
-                directions = currentTile.getDirections(MAP_SIZE); //get the valid directions surrounding the tile. Tiles located on edges or corner will only return 2 or 3 directions
-
-                for (int i = 0; i < directions.Count; i++) //iterate through each of the directions we just got
+                List<(int x, int y)> directions = currentTile.getDirections(MAP_SIZE);
+                //iterate through each of the directions we just got
+                for (int i = 0; i < directions.Count; i++)
                 {
-                    Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
-
-                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list)) //if the neighbor's entropy is reduced at all
+                    //get the neighbor of that tile in given direction
+                    int currentX = currentTile.getX() + directions[i].x;
+                    int currentY = currentTile.getY() + directions[i].y;
+                    Tile neighbor = mapTileInfo[currentX, currentY]; 
+                    bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list);
+                    if (constrained) //if the neighbor's entropy is reduced at all
                     {
-                        Debug.Log("Pushed to Stack");
+
                         stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything
+                        //if the neighbor's entropy goes to 0 from this, we have a contradiction and need to restart
+                        if (stack.Peek().getEntropy() == 0)
+                            abort = true;
                     }
                 }
 
