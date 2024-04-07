@@ -227,9 +227,9 @@ b_stairs_xneg, b_corner, 1,0
 b_stairs_xneg, b_arch_x, 1,0
 b_stairs_xneg, b_path_x, 1,0
  
-b_stairs_xneg, path1, -1,0
-b_stairs_xneg, path2, -1,0
-b_stairs_xneg, path3, -1,0
+b_stairs_xneg, path1, 1,0
+b_stairs_xneg, path2, 1,0
+b_stairs_xneg, path3, 1,0
  
 ////////////////////////////
  
@@ -241,9 +241,9 @@ b_stairs_yneg, b_corner, 0,1
 b_stairs_yneg, b_arch_y, 0,1
 b_stairs_yneg, b_path_y, 0,1
  
-b_stairs_yneg, path1, 0,-1
-b_stairs_yneg, path2, 0,-1
-b_stairs_yneg, path3, 0,-1
+b_stairs_yneg, path1, 0,1
+b_stairs_yneg, path2, 0,1
+b_stairs_yneg, path3, 0,1
  
 /////////////////////////////
  
@@ -255,9 +255,9 @@ b_stairs_xpos, b_corner, -1,0
 b_stairs_xpos, b_arch_x, -1,0
 b_stairs_xpos, b_path_x, -1,0
  
-b_stairs_xpos, path1, 1,0
-b_stairs_xpos, path2, 1,0
-b_stairs_xpos, path3, 1,0
+b_stairs_xpos, path1, -1,0
+b_stairs_xpos, path2, -1,0
+b_stairs_xpos, path3, -1,0
  
 ////////////////////////////
  
@@ -269,9 +269,9 @@ b_stairs_ypos, b_corner, 0,-1
 b_stairs_ypos, b_arch_y, 0,-1
 b_stairs_ypos, b_path_y, 0,-1
  
-b_stairs_ypos, path1, 0,1
-b_stairs_ypos, path2, 0,1
-b_stairs_ypos, path3, 0,1
+b_stairs_ypos, path1, 0,-1
+b_stairs_ypos, path2, 0,-1
+b_stairs_ypos, path3, 0,-1
  
 ////////////////////////////
  

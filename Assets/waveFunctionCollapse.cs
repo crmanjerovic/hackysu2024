@@ -27,6 +27,7 @@ public class waveFunctionCollapse : MonoBehaviour
     {
         // create an array of tiles names for readability
         for (int i=0; i < NUM_TILES; i++) 
+
         {
             tileNames[i] = tiles[i].name;
         }
@@ -48,7 +49,8 @@ public class waveFunctionCollapse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isNetEntropyZero) {
+        if (!isNetEntropyZero)
+        {
             //GET SPACE WITH LOWEST ENTROPY--------------------------------------------------------------------------------
             //Iterate through, get lowest value
             int lowestValue = NUM_TILES + 1;
@@ -75,6 +77,7 @@ public class waveFunctionCollapse : MonoBehaviour
                 }
             }
 
+
             //COLLAPSE THE TILE AND PLACE IT------------------------------------------------------------------------------------------
             int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count); //choose which tile to collapse randomly from list
             int ttcx = tilesWithLowestEntropy[whichTileToCollapse].x; //get the tile to collapse's coordinates
@@ -92,7 +95,7 @@ public class waveFunctionCollapse : MonoBehaviour
                 if (tileNames[i] == instantiateThis)
                     tileNumToInstantiate = i;
             }
-           
+
             //instantiate tile a fixed multiple of the coordinates away
             float instantiateHereX = TILE_SIZE * ttcx;
             float instantiateHereY = TILE_SIZE * ttcy;
@@ -102,6 +105,7 @@ public class waveFunctionCollapse : MonoBehaviour
                                           new Vector3(instantiateHereX, 0, instantiateHereY), 
                                           Quaternion.Euler(new Vector3(-90, 0, 0)));
                                         
+
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             //update the entropy and possible tiles of each space on the board based on the tile just selected
             Stack<Tile> stack = new Stack<Tile>();
@@ -121,6 +125,7 @@ public class waveFunctionCollapse : MonoBehaviour
                     bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list);
                     if (constrained) //if the neighbor's entropy is reduced at all
                     {
+
                         stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything
                         //if the neighbor's entropy goes to 0 from this, we have a contradiction and need to restart
                         if (stack.Peek().getEntropy() == 0)
@@ -128,34 +133,17 @@ public class waveFunctionCollapse : MonoBehaviour
                     }
                 }
 
-            }
-
-            //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
-            int highestValue = 0;
-            for (int i = 0; i < MAP_SIZE; i++)
-            {
-                for (int j = 0; j < MAP_SIZE; j++)
-                {
-                    if (mapTileInfo[i, j].getEntropy() > highestValue)
-                        highestValue = mapTileInfo[i, j].getEntropy();
-                }
-            }
-            if (highestValue == 0) isNetEntropyZero = true;
-
-            //ABORT THE ALGORITHM IN CASE OF CONTRADICTION--------------------------------------------------------------------------
-            if (abort)
-            {
-                isNetEntropyZero = false;
-                abort = false;
-
+                //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
+                int highestValue = 0;
                 for (int i = 0; i < MAP_SIZE; i++)
                 {
                     for (int j = 0; j < MAP_SIZE; j++)
                     {
-                        mapTileInfo[i, j] = new Tile(tileNames, i, j); //reset map info
-                        GameObject.Destroy(map[i, j]); //clear gameObjects
+                        if (mapTileInfo[i, j].getEntropy() > highestValue)
+                            highestValue = mapTileInfo[i, j].getEntropy();
                     }
                 }
+                if (highestValue == 0) isNetEntropyZero = true;
             }
         }
     }

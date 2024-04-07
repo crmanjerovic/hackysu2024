@@ -72,15 +72,17 @@ public class Tile
         // direction is other tile relative to this tile. The rules are read like (other, this, direction)
         bool modified = false;
 
-        if (entropy > 0)
-        {
-            // get all rules with tile1 in otherPossibleTiles and direction = direction and add them to new array
-            List<string> possibleTilesInRules = new List<string>();
+        // get all rules with tile1 in otherPossibleTiles and direction = direction and add them to new array
+        List<string> possibleTilesInRules = new List<string>();
 
-            for (int i = 0; i < otherPossibleTiles.Count; i++)
+        for (int i = 0; i < otherPossibleTiles.Count; i++)
+        {
+            //string tile1 = otherPossibleTiles[i];
+            for (int j = 0; j < rules.Count; j++)
             {
-                string tile1 = otherPossibleTiles[i];
-                for (int j = 0; j < rules.Count; j++)
+                Debug.Log(rules[j].tile1);
+                if (rules[j].tile1 == otherPossibleTiles[i] &&
+                    rules[j].direction == direction)
                 {
                     Debug.Log(rules[j].direction);
                     if (rules[j].tile1 == tile1 &&
@@ -88,14 +90,18 @@ public class Tile
                     {
                         possibleTilesInRules.Add(rules[j].tile2);
                     }
+
                 }
             }
+        }
+        Debug.Log(possibleTilesInRules.Count);
 
+<
             // get intersection of this.possibleTiles and possibleTilesInRules
             List<string> newPossibleTiles = new List<string>();
             for (int i = 0; i < possibleTiles.Count; i++)
             {
-                for (int j = 0; j < possibleTilesInRules.Count; j++)
+                if (possibleTiles[i] == possibleTilesInRules[j])
                 {
                     if (possibleTiles[i] == possibleTilesInRules[j])
                     {
@@ -108,6 +114,10 @@ public class Tile
             this.possibleTiles = newPossibleTiles;
             entropy = this.possibleTiles.Count;
         }
+
+        if (newPossibleTiles.Count < possibleTiles.Count) modified = true;
+        possibleTiles = newPossibleTiles;
+        entropy = this.possibleTiles.Count;
 
         return modified;
     }
