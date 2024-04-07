@@ -15,723 +15,813 @@
 // b_stairs_ypos
  
 ////////////////////////////
- 
+/ 
 ground, ground, 1,0
 ground, ground, -1,0
 ground, ground, 0,1
 ground, ground, 0,-1
- 
+/ 
 ground, b_corner, 1,0
 ground, b_corner, -1,0
 ground, b_corner, 0,1
 ground, b_corner, 0,-1
- 
+ /
 ground, b_arch_x, 0,1
 ground, b_arch_x, 0,-1
 ground, b_arch_y, 1,0
 ground, b_arch_y, -1,0
- 
+ /
 ground, b_path_x, 0,1
 ground, b_path_x, 0,-1
 ground, b_path_y, 1,0
 ground, b_path_y, -1,0
- 
+ /
 ground, b_stairs_xneg, 1,0
 ground, b_stairs_xneg, 0,1
 ground, b_stairs_xneg, 0,-1
- 
+ /
 ground, b_stairs_xpos, -1,0
 ground, b_stairs_xpos, 0,1
 ground, b_stairs_xpos, 0,-1
- 
+ /
 ground, b_stairs_yneg, 1,0
 ground, b_stairs_yneg, -1,0
 ground, b_stairs_yneg, 0,1
- 
-ground, b_stairs_ypos, 1,0
+ /
+ground, b_stairs_ypos, -1,0
 ground, b_stairs_ypos, -1,0
 ground, b_stairs_ypos, 0,-1
- 
+ /
 ground, mushroomLarge, 1,0
 ground, mushroomLarge, -1,0
 ground, mushroomLarge, 0,1
 ground, mushroomLarge, 0,-1
- 
+ /
 ground, mushroomSingle, 1,0
 ground, mushroomSingle, -1,0
 ground, mushroomSingle, 0,1
 ground, mushroomSingle, 0,-1
- 
+ /
 ground, mushroomField, 1,0
 ground, mushroomField, -1,0
 ground, mushroomField, 0,1
 ground, mushroomField, 0,-1
- 
+ /
 ground, path1, 1,0
 ground, path1, -1,0
 ground, path1, 0,1
 ground, path1, 0,-1
- 
+ /
 ground, path2, 1,0
 ground, path2, -1,0
 ground, path2, 0,1
 ground, path2, 0,-1
- 
+ /
 ground, path3, 1,0
 ground, path3, -1,0
 ground, path3, 0,1
 ground, path3, 0,-1
- 
+ /
 ground, ground, 1,0
 ground, ground, -1,0
 ground, ground, 0,1
 ground, ground, 0,-1
- 
+ /
 ground, flowers, 1,0
 ground, flowers, -1,0
 ground, flowers, 0,1
 ground, flowers, 0,-1
- 
+ /
 ground, rocksAndFlowers, 1,0
 ground, rocksAndFlowers, -1,0
 ground, rocksAndFlowers, 0,1
 ground, rocksAndFlowers, 0,-1
- 
+ /
 ground, treeLarge, 1,0
 ground, treeLarge, -1,0
 ground, treeLarge, 0,1
 ground, treeLarge, 0,-1
- 
+ /
 ground, treeMedium, 1,0
 ground, treeMedium, -1,0
 ground, treeMedium, 0,1
 ground, treeMedium, 0,-1
- 
+ /
 ground, treeSmallWFlowers, 1,0
 ground, treeSmallWFlowers, -1,0
 ground, treeSmallWFlowers, 0,1
 ground, treeSmallWFlowers, 0,-1
- 
+ /
 ground, treesSmall, 1,0
 ground, treesSmall, -1,0
 ground, treesSmall, 0,1
 ground, treesSmall, 0,-1
- 
+ /
 ground, rockLarge, 1,0
 ground, rockLarge, -1,0
 ground, rockLarge, 0,1
 ground, rockLarge, 0,-1
- 
+ /
 ground, rocksSmall, 1,0
 ground, rocksSmall, -1,0
 ground, rocksSmall, 0,1
 ground, rocksSmall, 0,-1
- 
+ /
 ////////////////////////////
- 
+ /
 b_corner, ground, 1,0
 b_corner, ground, -1,0
 b_corner, ground, 0,1
 b_corner, ground, 0,-1
- 
+ /
 b_corner, b_arch_x, 1,0
 b_corner, b_arch_x, -1,0
 b_corner, b_arch_y, 0,1
 b_corner, b_arch_y, 0,-1
- 
+ /
 b_corner, b_path_x, 1,0
 b_corner, b_path_x, -1,0
 b_corner, b_path_y, 0,1
 b_corner, b_path_y, 0,-1
- 
+ /
 b_corner, b_stairs_xneg, -1,0
 b_corner, b_stairs_xpos, 1,0
 b_corner, b_stairs_yneg, 0,-1
 b_corner, b_stairs_ypos, 0,1
- 
+ /
 ////////////////////////////
- 
+ /
 b_arch_x, ground, 0,1
 b_arch_x, ground, 0,-1
- 
+ /
 b_arch_x, b_corner, 1,0
 b_arch_x, b_corner, -1,0
- 
+ /
 b_arch_x, b_arch_x, 1,0
 b_arch_x, b_arch_x, -1,0
- 
+ /
 b_arch_x, b_path_x, 1,0
 b_arch_x, b_path_x, -1,0
- 
+ /
 b_arch_x, b_stairs_xneg, -1,0
 b_arch_x, b_stairs_xpos, 1,0
- 
+ /
 ////////////////////////////
- 
+ /
 b_arch_y, ground, 1,0
 b_arch_y, ground, -1,0
- 
+ /
 b_arch_y, b_corner, 0,1
 b_arch_y, b_corner, 0,-1
- 
+ /
 b_arch_y, b_arch_y, 0,1
 b_arch_y, b_arch_y, 0,-1
- 
+ /
 b_arch_y, b_path_y, 0,1
 b_arch_y, b_path_y, 0,-1
- 
+ /
 b_arch_y, b_stairs_yneg, 0,-1
 b_arch_y, b_stairs_ypos, 0,1
- 
+ /
 //////////////////////////////
- 
+ /
 b_path_x, ground, 0,1
 b_path_x, ground, 0,-1
- 
+ /
 b_path_x, b_corner, 1,0
 b_path_x, b_corner, -1,0
- 
+ /
 b_path_x, b_arch_x, 1,0
 b_path_x, b_arch_x, -1,0
- 
+ /
 b_path_x, b_path_x, 1,0
 b_path_x, b_path_x, -1,0
- 
+ /
 b_path_x, b_stairs_xneg, -1,0
 b_path_x, b_stairs_xpos, 1,0
- 
+ /
 ////////////////////////////
- 
+ /
 b_path_y, ground, 1,0
 b_path_y, ground, -1,0
- 
+ /
 b_path_y, b_corner, 0,1
 b_path_y, b_corner, 0,-1
- 
+ /
 b_path_y, b_arch_y, 0,1
 b_path_y, b_arch_y, 0,-1
- 
+ /
 b_path_y, b_path_y, 0,1
 b_path_y, b_path_y, 0,-1
- 
+ /
 b_path_y, b_stairs_yneg, 0,-1
 b_path_y, b_stairs_ypos, 0,1
- 
+ /
 /////////////////////////////
- 
-b_stairs_xneg, ground, 1,0
+ /
+b_stairs_xneg, ground, -1,0
 b_stairs_xneg, ground, 0,1
 b_stairs_xneg, ground, 0,-1
- 
+ /
 b_stairs_xneg, b_corner, 1,0
 b_stairs_xneg, b_arch_x, 1,0
 b_stairs_xneg, b_path_x, 1,0
- 
+ /
 b_stairs_xneg, path1, -1,0
 b_stairs_xneg, path2, -1,0
 b_stairs_xneg, path3, -1,0
- 
+ /
 ////////////////////////////
- 
-b_stairs_yneg, ground, 0,1
+ /
+b_stairs_yneg, ground, 0,-1
 b_stairs_yneg, ground, 1,0
 b_stairs_yneg, ground, -1,0
- 
+ /
 b_stairs_yneg, b_corner, 0,1
 b_stairs_yneg, b_arch_y, 0,1
 b_stairs_yneg, b_path_y, 0,1
- 
+ /
 b_stairs_yneg, path1, 0,-1
 b_stairs_yneg, path2, 0,-1
 b_stairs_yneg, path3, 0,-1
- 
+ /
 /////////////////////////////
- 
-b_stairs_xpos, ground, -1,0
+ /
+b_stairs_xpos, ground, 1,0
 b_stairs_xpos, ground, 0,-1
 b_stairs_xpos, ground, 0,1
- 
+ /
 b_stairs_xpos, b_corner, -1,0
 b_stairs_xpos, b_arch_x, -1,0
 b_stairs_xpos, b_path_x, -1,0
- 
+ /
 b_stairs_xpos, path1, 1,0
 b_stairs_xpos, path2, 1,0
 b_stairs_xpos, path3, 1,0
- 
+ /
 ////////////////////////////
- 
-b_stairs_ypos, ground, 0,-1
+ /
+b_stairs_ypos, ground, 0,1
 b_stairs_ypos, ground, -1,0
 b_stairs_ypos, ground, 1,0
- 
+ /
 b_stairs_ypos, b_corner, 0,-1
 b_stairs_ypos, b_arch_y, 0,-1
 b_stairs_ypos, b_path_y, 0,-1
- 
+ /
 b_stairs_ypos, path1, 0,1
 b_stairs_ypos, path2, 0,1
 b_stairs_ypos, path3, 0,1
- 
+ /
 ////////////////////////////
- 
+ /
 mushroomLarge, ground, 1,0
 mushroomLarge, ground, -1,0
 mushroomLarge, ground, 0,1
 mushroomLarge, ground, 0,-1
- 
+ /
 mushroomLarge, mushroomField, 1,0
 mushroomLarge, mushroomField, -1,0
 mushroomLarge, mushroomField, 0,1
 mushroomLarge, mushroomField, 0,-1
- 
+ /
 mushroomLarge, mushroomSingle, 0,1
 mushroomLarge, mushroomSingle, 0,-1
 mushroomLarge, mushroomSingle, 1,0
 mushroomLarge, mushroomSingle, -1,0
- 
+ /
+mushroomLarge, rocksSmall, 0,1
+mushroomLarge, rocksSmall, 0,-1
+mushroomLarge, rocksSmall, 1,0
+mushroomLarge, rocksSmall, -1,0
+ /
 ////////////////////////////
- 
+ /
 mushroomField, ground, 1,0
 mushroomField, ground, -1,0
 mushroomField, ground, 0,1
 mushroomField, ground, 0,-1
- 
+ /
 mushroomField, mushroomField, 1,0
 mushroomField, mushroomField, -1,0
 mushroomField, mushroomField, 0,1
 mushroomField, mushroomField, 0,-1
- 
+ /
 mushroomField, mushroomSingle, 0,1
 mushroomField, mushroomSingle, 0,-1
 mushroomField, mushroomSingle, 1,0
 mushroomField, mushroomSingle, -1,0
- 
+ /
 mushroomField, mushroomLarge, 0,1
 mushroomField, mushroomLarge, 0,-1
 mushroomField, mushroomLarge, 1,0
 mushroomField, mushroomLarge, -1,0
- 
+ /
+mushroomField, treeLarge, 0,1
+mushroomField, treeLarge, 0,-1
+mushroomField, treeLarge, 1,0
+mushroomField, treeLarge, -1,0
+ /
+mushroomField, treeSmallWFlowers, 0,1
+mushroomField, treeSmallWFlowers, 0,-1
+mushroomField, treeSmallWFlowers, 1,0
+mushroomField, treeSmallWFlowers, -1,0
+ /
+mushroomField, treeMedium, 0,1
+mushroomField, treeMedium, 0,-1
+mushroomField, treeMedium, 1,0
+mushroomField, treeMedium, -1,0
+ /
+mushroomField, treesSmall, 0,1
+mushroomField, treesSmall, 0,-1
+mushroomField, treesSmall, 1,0
+mushroomField, treesSmall, -1,0
+ /
 ////////////////////////////
- 
+ /
 mushroomSingle, ground, 1,0
 mushroomSingle, ground, -1,0
 mushroomSingle, ground, 0,1
 mushroomSingle, ground, 0,-1
- 
+ /
 mushroomSingle, mushroomField, 1,0
 mushroomSingle, mushroomField, -1,0
 mushroomSingle, mushroomField, 0,1
 mushroomSingle, mushroomField, 0,-1
- 
+ /
 mushroomSingle, mushroomSingle, 0,1
 mushroomSingle, mushroomSingle, 0,-1
 mushroomSingle, mushroomSingle, 1,0
 mushroomSingle, mushroomSingle, -1,0
- 
+ /
 mushroomSingle, mushroomLarge, 0,1
 mushroomSingle, mushroomLarge, 0,-1
 mushroomSingle, mushroomLarge, 1,0
 mushroomSingle, mushroomLarge, -1,0
- 
+ /
+mushroomSingle, treeLarge, 0,1
+mushroomSingle, treeLarge, 0,-1
+mushroomSingle, treeLarge, 1,0
+mushroomSingle, treeLarge, -1,0
+ /
+mushroomSingle, rocksAndFlowers, 0,1
+mushroomSingle, rocksAndFlowers, 0,-1
+mushroomSingle, rocksAndFlowers, 1,0
+mushroomSingle, rocksAndFlowers, -1,0
+ /
+mushroomSingle, treeSmallWFlowers, 0,1
+mushroomSingle, treeSmallWFlowers, 0,-1
+mushroomSingle, treeSmallWFlowers, 1,0
+mushroomSingle, treeSmallWFlowers, -1,0
+ /
+mushroomSingle, treeMedium, 0,1
+mushroomSingle, treeMedium, 0,-1
+mushroomSingle, treeMedium, 1,0
+mushroomSingle, treeMedium, -1,0
+ /
+mushroomSingle, treesSmall, 0,1
+mushroomSingle, treesSmall, 0,-1
+mushroomSingle, treesSmall, 1,0
+mushroomSingle, treesSmall, -1,0
+ /
 ////////////////////////////
- 
+ /
 path1, ground, 1,0
 path1, ground, -1,0
 path1, ground, 0,1
 path1, ground, 0,-1
- 
+ /
 path1, path2, 1,0
 path1, path2, -1,0
 path1, path2, 0,1
 path1, path2, 0,-1
- 
+ /
 path1, path3, 1,0
 path1, path3, -1,0
 path1, path3, 0,1
 path1, path3, 0,-1
- 
-path1, b_stairs_xPos, 1,0
-path1, b_stairs_xneg, -1,0
-path1, b_stairs_ypos, 0,1
-path1, b_stairs_xneg, 0,-1
- 
+ /
+path1, b_stairs_xPos, -1,0
+path1, b_stairs_xneg, 1,0
+path1, b_stairs_ypos, 0,-1
+path1, b_stairs_xneg, 0,1
+ /
 ////////////////////////////
- 
+ /
 path2, ground, 1,0
 path2, ground, -1,0
 path2, ground, 0,1
 path2, ground, 0,-1
- 
+ /
 path2, path1, 1,0
 path2, path1, -1,0
 path2, path1, 0,1
 path2, path1, 0,-1
- 
+ /
 path2, path3, 1,0
 path2, path3, -1,0
 path2, path3, 0,1
 path2, path3, 0,-1
- 
-path2, b_stairs_xPos, 1,0
-path2, b_stairs_xneg, -1,0
-path2, b_stairs_ypos, 0,1
-path2, b_stairs_xneg, 0,-1
- 
+ /
+path2, b_stairs_xPos, -1,0
+path2, b_stairs_xneg, 1,0
+path2, b_stairs_ypos, 0,-1
+path2, b_stairs_xneg, 0,1
+ /
 ////////////////////////////
- 
+ /
 path3, ground, 1,0
 path3, ground, -1,0
 path3, ground, 0,1
 path3, ground, 0,-1
- 
+ /
 path3, path1, 1,0
 path3, path1, -1,0
 path3, path1, 0,1
 path3, path1, 0,-1
- 
+ /
 path3, path2, 1,0
 path3, path2, -1,0
 path3, path2, 0,1
 path3, path2, 0,-1
- 
-path3, b_stairs_xPos, 1,0
-path3, b_stairs_xneg, -1,0
-path3, b_stairs_ypos, 0,1
-path3, b_stairs_xneg, 0,-1
- 
+ /
+path3, b_stairs_xPos, -1,0
+path3, b_stairs_xneg, 1,0
+path3, b_stairs_ypos, 0,-1
+path3, b_stairs_xneg, 0, 1
+ /
 ////////////////////////////
- 
+ /
 flowers, ground, 1,0
 flowers, ground, -1,0
 flowers, ground, 0,1
 flowers, ground, 0,-1
- 
+ /
 flowers, flowers, 1,0
 flowers, flowers, -1,0
 flowers, flowers, 0,1
 flowers, flowers, 0,-1
- 
+ /
 flowers, rocksAndFlowers, 1,0
 flowers, rocksAndFlowers, -1,0
 flowers, rocksAndFlowers, 0,1
 flowers, rocksAndFlowers, 0,-1
- 
+ /
 flowers, treeLarge, 1,0
 flowers, treeLarge, -1,0
 flowers, treeLarge, 0,1
 flowers, treeLarge, 0,-1
- 
+ /
 flowers, treeMedium, 1,0
 flowers, treeMedium, -1,0
 flowers, treeMedium, 0,1
 flowers, treeMedium, 0,-1
- 
+ /
 flowers, treeSmallWFlowers, 1,0
 flowers, treeSmallWFlowers, -1,0
 flowers, treeSmallWFlowers, 0,1
 flowers, treeSmallWFlowers, 0,-1
- 
+ /
 flowers, treesSmall, 1,0
 flowers, treesSmall, -1,0
 flowers, treesSmall, 0,1
 flowers, treesSmall, 0,-1
- 
+ /
 flowers, rockLarge, 1,0
 flowers, rockLarge, -1,0
 flowers, rockLarge, 0,1
 flowers, rockLarge, 0,-1
- 
+ /
 flowers, rocksSmall, 1,0
 flowers, rocksSmall, -1,0
 flowers, rocksSmall, 0,1
 flowers, rocksSmall, 0,-1
- 
+ /
 ////////////////////////////
- 
+ /
 rocksAndFlowers, ground, 1,0
 rocksAndFlowers, ground, -1,0
 rocksAndFlowers, ground, 0,1
 rocksAndFlowers, ground, 0,-1
- 
+ /
 rocksAndFlowers, flowers, 1,0
 rocksAndFlowers, flowers, -1,0
 rocksAndFlowers, flowers, 0,1
 rocksAndFlowers, flowers, 0,-1
- 
+ /
 rocksAndFlowers, rocksAndFlowers, 1,0
 rocksAndFlowers, rocksAndFlowers, -1,0
 rocksAndFlowers, rocksAndFlowers, 0,1
 rocksAndFlowers, rocksAndFlowers, 0,-1
- 
+ /
 rocksAndFlowers, treeLarge, 1,0
 rocksAndFlowers, treeLarge, -1,0
 rocksAndFlowers, treeLarge, 0,1
 rocksAndFlowers, treeLarge, 0,-1
- 
+ /
 rocksAndFlowers, treeMedium, 1,0
 rocksAndFlowers, treeMedium, -1,0
 rocksAndFlowers, treeMedium, 0,1
 rocksAndFlowers, treeMedium, 0,-1
- 
+ /
 rocksAndFlowers, treeSmallWFlowers, 1,0
 rocksAndFlowers, treeSmallWFlowers, -1,0
 rocksAndFlowers, treeSmallWFlowers, 0,1
 rocksAndFlowers, treeSmallWFlowers, 0,-1
- 
+ /
 rocksAndFlowers, treesSmall, 1,0
 rocksAndFlowers, treesSmall, -1,0
 rocksAndFlowers, treesSmall, 0,1
 rocksAndFlowers, treesSmall, 0,-1
- 
+ /
 rocksAndFlowers, rockLarge, 1,0
 rocksAndFlowers, rockLarge, -1,0
 rocksAndFlowers, rockLarge, 0,1
 rocksAndFlowers, rockLarge, 0,-1
- 
+ /
 rocksAndFlowers, rocksSmall, 1,0
 rocksAndFlowers, rocksSmall, -1,0
 rocksAndFlowers, rocksSmall, 0,1
 rocksAndFlowers, rocksSmall, 0,-1
- 
+ /
 ////////////////////////////
- 
+ /
 treeLarge, ground, 1,0
 treeLarge, ground, -1,0
 treeLarge, ground, 0,1
 treeLarge, ground, 0,-1
- 
+ /
 treeLarge, flowers, 1,0
 treeLarge, flowers, -1,0
 treeLarge, flowers, 0,1
 treeLarge, flowers, 0,-1
- 
+ /
 treeLarge, rocksAndFlowers, 1,0
 treeLarge, rocksAndFlowers, -1,0
 treeLarge, rocksAndFlowers, 0,1
 treeLarge, rocksAndFlowers, 0,-1
- 
-treeLarge, treeLarge, 1,0
-treeLarge, treeLarge, -1,0
-treeLarge, treeLarge, 0,1
-treeLarge, treeLarge, 0,-1
- 
+ /
 treeLarge, treeMedium, 1,0
 treeLarge, treeMedium, -1,0
 treeLarge, treeMedium, 0,1
 treeLarge, treeMedium, 0,-1
- 
+ /
 treeLarge, treeSmallWFlowers, 1,0
 treeLarge, treeSmallWFlowers, -1,0
 treeLarge, treeSmallWFlowers, 0,1
 treeLarge, treeSmallWFlowers, 0,-1
- 
+ /
 treeLarge, treesSmall, 1,0
 treeLarge, treesSmall, -1,0
 treeLarge, treesSmall, 0,1
 treeLarge, treesSmall, 0,-1
- 
+ /
 treeLarge, rocksSmall, 1,0
 treeLarge, rocksSmall, -1,0
 treeLarge, rocksSmall, 0,1
 treeLarge, rocksSmall, 0,-1
- 
+/
+treeLarge, mushroomField, 0,1
+treeLarge, mushroomField, 0,-1
+treeLarge, mushroomField, 1,0
+treeLarge, mushroomField, -1,0
+/
+treeLarge, mushroomSingle, 0,1
+treeLarge, mushroomSingle, 0,-1
+treeLarge, mushroomSingle, 1,0
+treeLarge, mushroomSingle, -1,0
+ /
 ////////////////////////////
- 
+ /
 treeMedium, ground, 1,0
 treeMedium, ground, -1,0
 treeMedium, ground, 0,1
 treeMedium, ground, 0,-1
- 
+ /
 treeMedium, flowers, 1,0
 treeMedium, flowers, -1,0
 treeMedium, flowers, 0,1
 treeMedium, flowers, 0,-1
- 
+ /
 treeMedium, rocksAndFlowers, 1,0
 treeMedium, rocksAndFlowers, -1,0
 treeMedium, rocksAndFlowers, 0,1
 treeMedium, rocksAndFlowers, 0,-1
- 
+ /
 treeMedium, treeLarge, 1,0
 treeMedium, treeLarge, -1,0
 treeMedium, treeLarge, 0,1
 treeMedium, treeLarge, 0,-1
- 
+ /
 treeMedium, treeMedium, 1,0
 treeMedium, treeMedium, -1,0
 treeMedium, treeMedium, 0,1
 treeMedium, treeMedium, 0,-1
- 
+ /
 treeMedium, treeSmallWFlowers, 1,0
 treeMedium, treeSmallWFlowers, -1,0
 treeMedium, treeSmallWFlowers, 0,1
 treeMedium, treeSmallWFlowers, 0,-1
- 
+ /
 treeMedium, treesSmall, 1,0
 treeMedium, treesSmall, -1,0
 treeMedium, treesSmall, 0,1
 treeMedium, treesSmall, 0,-1
- 
+ /
 treeMedium, rocksSmall, 1,0
 treeMedium, rocksSmall, -1,0
 treeMedium, rocksSmall, 0,1
 treeMedium, rocksSmall, 0,-1
- 
+/
+treeMedium, mushroomField, 1,0
+treeMedium, mushroomField, -1,0
+treeMedium, mushroomField, 0,1
+treeMedium, mushroomField, 0,-1
+/
+treeMedium, mushroomSingle, 0,1
+treeMedium, mushroomSingle, 0,-1
+treeMedium, mushroomSingle, 1,0
+treeMedium, mushroomSingle, -1,0
+ /
 ////////////////////////////
- 
+ /
 treeSmallWFlowers, ground, 1,0
 treeSmallWFlowers, ground, -1,0
 treeSmallWFlowers, ground, 0,1
 treeSmallWFlowers, ground, 0,-1
- 
+ /
 treeSmallWFlowers, flowers, 1,0
 treeSmallWFlowers, flowers, -1,0
 treeSmallWFlowers, flowers, 0,1
 treeSmallWFlowers, flowers, 0,-1
- 
+ /
 treeSmallWFlowers, rocksAndFlowers, 1,0
 treeSmallWFlowers, rocksAndFlowers, -1,0
 treeSmallWFlowers, rocksAndFlowers, 0,1
 treeSmallWFlowers, rocksAndFlowers, 0,-1
- 
+ /
 treeSmallWFlowers, treeLarge, 1,0
 treeSmallWFlowers, treeLarge, -1,0
 treeSmallWFlowers, treeLarge, 0,1
 treeSmallWFlowers, treeLarge, 0,-1
- 
+ /
 treeSmallWFlowers, treeMedium, 1,0
 treeSmallWFlowers, treeMedium, -1,0
 treeSmallWFlowers, treeMedium, 0,1
 treeSmallWFlowers, treeMedium, 0,-1
- 
+ /
 treeSmallWFlowers, treeSmallWFlowers, 1,0
 treeSmallWFlowers, treeSmallWFlowers, -1,0
 treeSmallWFlowers, treeSmallWFlowers, 0,1
 treeSmallWFlowers, treeSmallWFlowers, 0,-1
- 
+ /
 treeSmallWFlowers, treesSmall, 1,0
 treeSmallWFlowers, treesSmall, -1,0
 treeSmallWFlowers, treesSmall, 0,1
 treeSmallWFlowers, treesSmall, 0,-1
- 
+ /
 treeSmallWFlowers, rocksSmall, 1,0
 treeSmallWFlowers, rocksSmall, -1,0
 treeSmallWFlowers, rocksSmall, 0,1
 treeSmallWFlowers, rocksSmall, 0,-1
- 
+/
+treeSmallWFlowers, mushroomField, 0,1
+treeSmallWFlowers, mushroomField, 0,-1
+treeSmallWFlowers, mushroomField, 1,0
+treeSmallWFlowers, mushroomField, -1,0
+/
+treeSmallWFlowers, mushroomSingle, 0,1
+treeSmallWFlowers, mushroomSingle, 0,-1
+treeSmallWFlowers, mushroomSingle, 1,0
+treeSmallWFlowers, mushroomSingle, -1,0
+ /
 ////////////////////////////
- 
+ /
 treesSmall, ground, 1,0
 treesSmall, ground, -1,0
 treesSmall, ground, 0,1
 treesSmall, ground, 0,-1
- 
+ /
 treesSmall, flowers, 1,0
 treesSmall, flowers, -1,0
 treesSmall, flowers, 0,1
 treesSmall, flowers, 0,-1
- 
+ /
 treesSmall, rocksAndFlowers, 1,0
 treesSmall, rocksAndFlowers, -1,0
 treesSmall, rocksAndFlowers, 0,1
 treesSmall, rocksAndFlowers, 0,-1
- 
+ /
 treesSmall, treeLarge, 1,0
 treesSmall, treeLarge, -1,0
 treesSmall, treeLarge, 0,1
 treesSmall, treeLarge, 0,-1
- 
+ /
 treesSmall, treeMedium, 1,0
 treesSmall, treeMedium, -1,0
 treesSmall, treeMedium, 0,1
 treesSmall, treeMedium, 0,-1
- 
+ /
 treesSmall, treeSmallWFlowers, 1,0
 treesSmall, treeSmallWFlowers, -1,0
 treesSmall, treeSmallWFlowers, 0,1
 treesSmall, treeSmallWFlowers, 0,-1
- 
+ /
 treesSmall, treesSmall, 1,0
 treesSmall, treesSmall, -1,0
 treesSmall, treesSmall, 0,1
 treesSmall, treesSmall, 0,-1
- 
+ /
 treesSmall, rocksSmall, 1,0
 treesSmall, rocksSmall, -1,0
 treesSmall, rocksSmall, 0,1
 treesSmall, rocksSmall, 0,-1
- 
+ /
+treesSmall, mushroomField, 0,1
+treesSmall, mushroomField, 0,-1
+treesSmall, mushroomField, 1,0
+treesSmall, mushroomField, -1,0
+ /
+treesSmall, mushroomSingle, 0,1
+treesSmall, mushroomSingle, 0,-1
+treesSmall, mushroomSingle, 1,0
+treesSmall, mushroomSingle, -1,0
+ /
 ////////////////////////////
- 
+ /
 rockLarge, ground, 1,0
 rockLarge, ground, -1,0
 rockLarge, ground, 0,1
 rockLarge, ground, 0,-1
- 
+ /
 rockLarge, flowers, 1,0
 rockLarge, flowers, -1,0
 rockLarge, flowers, 0,1
 rockLarge, flowers, 0,-1
- 
+ /
 rockLarge, rocksAndFlowers, 1,0
 rockLarge, rocksAndFlowers, -1,0
 rockLarge, rocksAndFlowers, 0,1
 rockLarge, rocksAndFlowers, 0,-1
- 
+ /
 rockLarge, rockLarge, 1,0
 rockLarge, rockLarge, -1,0
 rockLarge, rockLarge, 0,1
 rockLarge, rockLarge, 0,-1
- 
+ /
 rockLarge, rocksSmall, 1,0
 rockLarge, rocksSmall, -1,0
 rockLarge, rocksSmall, 0,1
 rockLarge, rocksSmall, 0,-1
- 
+ /
 ////////////////////////////
- 
+ /
 rocksSmall, ground, 1,0
 rocksSmall, ground, -1,0
 rocksSmall, ground, 0,1
 rocksSmall, ground, 0,-1
- 
+ /
 rocksSmall, flowers, 1,0
 rocksSmall, flowers, -1,0
 rocksSmall, flowers, 0,1
 rocksSmall, flowers, 0,-1
- 
+ /
 rocksSmall, rocksAndFlowers, 1,0
 rocksSmall, rocksAndFlowers, -1,0
 rocksSmall, rocksAndFlowers, 0,1
 rocksSmall, rocksAndFlowers, 0,-1
- 
+ /
 rocksSmall, treeLarge, 1,0
 rocksSmall, treeLarge, -1,0
 rocksSmall, treeLarge, 0,1
 rocksSmall, treeLarge, 0,-1
- 
+ /
 rocksSmall, treeMedium, 1,0
 rocksSmall, treeMedium, -1,0
 rocksSmall, treeMedium, 0,1
 rocksSmall, treeMedium, 0,-1
- 
+ /
 rocksSmall, treeSmallWFlowers, 1,0
 rocksSmall, treeSmallWFlowers, -1,0
 rocksSmall, treeSmallWFlowers, 0,1
 rocksSmall, treeSmallWFlowers, 0,-1
- 
+ /
 rocksSmall, treesSmall, 1,0
 rocksSmall, treesSmall, -1,0
 rocksSmall, treesSmall, 0,1
 rocksSmall, treesSmall, 0,-1
- 
+ /
 rocksSmall, rockLarge, 1,0
 rocksSmall, rockLarge, -1,0
 rocksSmall, rockLarge, 0,1
 rocksSmall, rockLarge, 0,-1
- 
+ /
 rocksSmall, rocksSmall, 1,0
 rocksSmall, rocksSmall, -1,0
 rocksSmall, rocksSmall, 0,1
 rocksSmall, rocksSmall, 0,-1
+/
+rocksSmall, mushroomLarge, 0,1
+rocksSmall, mushroomLarge, 0,-1
+rocksSmall, mushroomLarge, 1,0
+rocksSmall, mushroomLarge, -1,0
