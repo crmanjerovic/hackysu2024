@@ -90,8 +90,8 @@ public class waveFunctionCollapse : MonoBehaviour
             }
             float instantiateHereX = TILE_SIZE * tileToCollapse.getX();
             float instantiateHereY = TILE_SIZE * tileToCollapse.getY();
-            //Debug.Log(tileToCollapse.getX());
-            Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0)));
+            // Debug.Log(tileToCollapse.getX());
+            // Instantiate(tiles[tileNumToInstantiate], new Vector3(instantiateHereX, 0, instantiateHereY), Quaternion.Euler(new Vector3(-90, 0, 0)));
 
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             Stack<Tile> stack = new Stack<Tile>();
@@ -103,10 +103,14 @@ public class waveFunctionCollapse : MonoBehaviour
                 List<(int x, int y)> directions = new List<(int x, int y)>();
                 directions = currentTile.getDirections(MAP_SIZE);
 
-                for (int i = 0; i < directions.Count; i++)
+                for (int i=0; i<directions.Count; i++)
                 {
-                    Tile neighbor = mapTileInfo[currentTile.getX() + directions[i].x, currentTile.getY() + directions[i].y]; //get the neighbor of that tile in given direction
-                    if (neighbor.constrain(currentTile.getPossibleTiles(), directions[i]))
+                    //get the neighbor of that tile in given direction
+                    int neighborX = currentTile.getX() + directions[i].x;
+                    int neighborY = currentTile.getY() + directions[i].y;
+                    Tile neighbor = mapTileInfo[neighborX, neighborY];
+                    bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list);
+                    if (constrained)
                         stack.Push(neighbor);
                 }
             }
