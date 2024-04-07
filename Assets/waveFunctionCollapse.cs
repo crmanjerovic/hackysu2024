@@ -20,6 +20,7 @@ public class waveFunctionCollapse : MonoBehaviour
     bool abort = false;
 
     private TileRuleList rules;
+    private TileWeights weights;
 
 
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ public class waveFunctionCollapse : MonoBehaviour
         string baseDirectory = Application.streamingAssetsPath;
         string rulesFilePath = Path.Combine(baseDirectory, "tileRules.txt");
         rules = new TileRuleList(rulesFilePath);
+        weights = new TileWeights();
     }
 
 
@@ -83,7 +85,7 @@ public class waveFunctionCollapse : MonoBehaviour
 
             //need to get the array index of the game object to instantiate from the tile object
             string instantiateThis;
-            instantiateThis = tileToCollapse.collapse();
+            instantiateThis = tileToCollapse.collapse(weights.dict);
             int tileNumToInstantiate = 0;
 
             //find the index corresponding to the name string of the tile type
@@ -118,7 +120,7 @@ public class waveFunctionCollapse : MonoBehaviour
                     int currentX = currentTile.getX() + directions[i].x;
                     int currentY = currentTile.getY() + directions[i].y;
                     Tile neighbor = mapTileInfo[currentX, currentY]; 
-                    bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.list);
+                    bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.dict);
                     if (constrained) //if the neighbor's entropy is reduced at all
                     {
                         stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything

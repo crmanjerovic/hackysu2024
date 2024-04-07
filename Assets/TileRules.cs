@@ -9,9 +9,8 @@ public class TileRule
     public string tile2;
     public (int x, int y) direction;
 
-    public TileRule(string tile1, string tile2, (int x, int y) direction) 
+    public TileRule(string tile2, (int x, int y) direction) 
     {
-        this.tile1 = tile1;
         this.tile2 = tile2;
         this.direction = direction;
     }
@@ -20,7 +19,9 @@ public class TileRule
 
 public class TileRuleList
 {
-    public List<TileRule> list = new List<TileRule>();
+    public Dictionary<string, List<TileRule>> dict 
+        = new Dictionary<string, List<TileRule>>();
+
     public TileRuleList(string filePath) 
     {
         string[] lines = File.ReadAllLines(filePath);
@@ -28,7 +29,7 @@ public class TileRuleList
         foreach (string line in lines)
         {
             if (line.StartsWith("/") ||
-                line.StartsWith(" ")){
+                line.StartsWith(" ")) {
                 continue;
             }
 
@@ -40,7 +41,11 @@ public class TileRuleList
             int x = int.Parse(xString);
             int y = int.Parse(yString);
 
-            list.Add(new TileRule(tile1, tile2, (x,y)));
+            if (!dict.ContainsKey(tile1))
+                {
+                    dict[tile1] = new List<TileRule>();
+                }
+            dict[tile1].Add(new TileRule(tile2, (x,y)));
         }
     }
 }
