@@ -10,7 +10,8 @@ By Caroline Manjerovic and Cecil Manjerovic
 
 <img src="https://i.imgur.com/PR7vU5v.gif" alt="Gibbon's World 0" width="600">
 
-<img src="https://i.imgur.com/FftF9e8.gif" alt="Gibbon's World 1" width="600">
+<img src="https://i.imgur.com/Uf24hkN.gif" alt="Gibbon's World 1" width="600">
+
 
 
 
