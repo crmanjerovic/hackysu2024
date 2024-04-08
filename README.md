@@ -5,5 +5,5 @@
 
 By Caroline Manjerovic and Cecil Manjerovic
 
-<h4>Unity Project, Uses a simple implementation of a wave function collapse algorithm for world generation.</h4>
+<h4>Unity ver. 2022.3.23f1, Uses a simple implementation of a wave function collapse algorithm for world generation.</h4>
 <i><h4>(Alternatively known as 'Gibbon's World')</h4></i>
