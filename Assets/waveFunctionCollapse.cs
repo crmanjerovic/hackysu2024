@@ -26,6 +26,7 @@ public class waveFunctionCollapse : MonoBehaviour
     {
         // create an array of tiles names for readability
         for (int i=0; i < NUM_TILES; i++) 
+
         {
             tileNames[i] = tiles[i].name;
         }
@@ -48,6 +49,7 @@ public class waveFunctionCollapse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!isFinished) {
             //GET SPACE WITH LOWEST ENTROPY--------------------------------------------------------------------------------
             //Iterate through, get lowest value that's not 0
@@ -85,6 +87,7 @@ public class waveFunctionCollapse : MonoBehaviour
                 }
             }
 
+
             //COLLAPSE THE TILE AND PLACE IT------------------------------------------------------------------------------------------
             int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count); //choose which tile to collapse randomly from list
             (int x, int y) tileToCollapseLocation = tilesWithLowestEntropy[whichTileToCollapse];
@@ -103,7 +106,7 @@ public class waveFunctionCollapse : MonoBehaviour
                 if (tileNames[i] == instantiateThis)
                     tileNumToInstantiate = i;
             }
-           
+
             //instantiate tile a fixed multiple of the coordinates away
             float instantiateHereX = TILE_SIZE * ttcx;
             float instantiateHereY = TILE_SIZE * ttcy;
@@ -112,6 +115,7 @@ public class waveFunctionCollapse : MonoBehaviour
                         new Vector3(instantiateHereX, 0, instantiateHereY), 
                         Quaternion.Euler(new Vector3(-90, 0, 0)));
                                         
+
             //UPDATE MATRIX-------------------------------------------------------------------------------------------------
             //update the entropy and possible tiles of each space on the board based on the tile just selected
             Stack<Tile> stack = new Stack<Tile>();
@@ -131,6 +135,7 @@ public class waveFunctionCollapse : MonoBehaviour
                     bool constrained = neighbor.constrain(currentTile.getPossibleTiles(), directions[i], rules.dict);
                     if (constrained) //if the neighbor's entropy is reduced at all
                     {
+
                         stack.Push(neighbor); //push said neighbor onto the stack to continue updating everything
                     }
                 }
