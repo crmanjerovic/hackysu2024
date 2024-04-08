@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3820021747309692631}
   - component: {fileID: 85642120895920966}
   - component: {fileID: 1147944930145542400}
-  - component: {fileID: -6059040697943570571}
+  - component: {fileID: 3312796270003889572}
   m_Layer: 0
   m_Name: b_stairs_ypos
   m_TagString: Untagged
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803612869804638105}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 3, y: -1, z: 3}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.49991274, y: -0.50008726, z: -0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: 74.54413, y: 0.0022508977, z: -84.782295}
+  m_LocalScale: {x: 50, y: 90, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -90, z: 0}
 --- !u!33 &85642120895920966
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803612869804638105}
-  m_Mesh: {fileID: 5382014756619176626, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  m_Mesh: {fileID: -745928167409971724, guid: 406ce0a17126ec24e9f3a52ad146985c, type: 3}
 --- !u!23 &1147944930145542400
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5313096204258746848, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  - {fileID: 3590926994596221855, guid: 406ce0a17126ec24e9f3a52ad146985c, type: 3}
+  - {fileID: 7539085459612561180, guid: 406ce0a17126ec24e9f3a52ad146985c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-6059040697943570571
+--- !u!64 &3312796270003889572
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,4 +106,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5382014756619176626, guid: ee8f79898904d2c40a23d97c5782a17e, type: 3}
+  m_Mesh: {fileID: -745928167409971724, guid: 406ce0a17126ec24e9f3a52ad146985c, type: 3}

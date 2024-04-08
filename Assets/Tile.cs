@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Tile
@@ -58,18 +59,48 @@ public class Tile
         return directions;
     }
 
-    public string collapse()
+    public string collapse(Dictionary<string, int> weights)
     {
+        // method of getting random weighted selection
+        // list of weights corresponds to possibleTiles by index
+        List<int> possibleWeights = new List<int>();
+        for (int i=0; i<possibleTiles.Count; i++) {
+            possibleWeights.Add(weights[possibleTiles[i]]);
+        }
+        // sum weights and choose random in range of sum
+        int weightSum = possibleWeights.Sum();
+        int randomSum = Random.Range(0, weightSum);
+        // get index by subtracting possibleWeights from sum
+        // until sum is zero. that should give an index...
+        int chosenIndex = 0;
+        for (int i=0; i<possibleWeights.Count; i++) 
+        {
+            randomSum -= possibleWeights[i];
+            if (randomSum <= 0) 
+            {
+                chosenIndex = i;
+                break;
+            }
+        }
+
         // select weighted random from possibleTiles
-        string tileName = possibleTiles[Random.Range(0, possibleTiles.Count)];
+        string tileName;
+        if (entropy != 0)
+            tileName = possibleTiles[chosenIndex];
+        else
+            tileName = "ground";
+
         this.possibleTiles = new List<string> {tileName};
         entropy = 0;
         return tileName;
     }
 
-    public bool constrain(List<string> otherPossibleTiles, (int x, int y) direction, List<TileRule> rules)
+    public bool constrain(List<string> otherPossibleTiles, 
+                          (int x, int y) direction, 
+                          Dictionary<string, List<TileRule>> rules)
     {
-        // direction is other tile relative to this tile. The rules are read like (other, this, direction)
+        // direction is other tile relative to this tile. 
+        // The rules are read like (tile1=other, tile2=this, direction)
         bool modified = false;
 
         // get all rules with tile1 in otherPossibleTiles and direction = direction and add them to new array
@@ -80,15 +111,16 @@ public class Tile
             //string tile1 = otherPossibleTiles[i];
             for (int j = 0; j < rules.Count; j++)
             {
-                Debug.Log(rules[j].tile1);
-                if (rules[j].tile1 == otherPossibleTiles[i] &&
-                    rules[j].direction == direction)
+                // get list with key=tile1 from rules dictionary
+                string tile1 = otherPossibleTiles[i];
+                List<TileRule> tile1List = rules[tile1];
+
+                for (int j = 0; j < tile1List.Count; j++)
                 {
-                    Debug.Log(rules[j].direction);
-                    if (rules[j].tile1 == tile1 &&
-                        rules[j].direction == direction)
+                    if (tile1List[j].direction == direction) 
                     {
-                        possibleTilesInRules.Add(rules[j].tile2);
+                        string tile2 = tile1List[j].tile2;
+                        possibleTilesInRules.Add(tile2);
                     }
 
                 }
