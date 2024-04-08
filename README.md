@@ -1,0 +1,9 @@
+<h1>Wave Function Collapse Garden</h1> 
+<h3>HackYSU 2024 Submission</h3>
+
+<i>April 7th 2024</i>
+
+By Caroline Manjerovic and Cecil Manjerovic
+
+<h4>Unity Project, Uses a simple implementation of a wave function collapse algorithm for world generation.</h4>
+<i><h4>(Alternatively known as 'Gibbon's World')</h4></i>
