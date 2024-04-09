@@ -137,8 +137,8 @@ Rigidbody:
   m_GameObject: {fileID: 63562944}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 5
-  m_AngularDrag: 50
+  m_Drag: 1
+  m_AngularDrag: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -470,13 +470,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.42255387, y: 0.015817292, z: -0.0073757237, w: 0.9061698}
   m_LocalPosition: {x: -6.4, y: 9.21, z: -9.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 2, z: 0}
 --- !u!1 &851429214
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +546,9 @@ MonoBehaviour:
   - {fileID: 1936435949455393983, guid: ed23d83c380a9114e8c66cbfa9cef2f8, type: 3}
   - {fileID: 6491920953744406257, guid: dc04ca0a9729a0246ac8fcfa2041ee2a, type: 3}
   - {fileID: 1527408602137999563, guid: 0ebfa9ca070561f4693299e05db60954, type: 3}
+  - {fileID: 4897179831949194749, guid: 855de4afa470f6c49b70d332442caa5a, type: 3}
+  - {fileID: 858127277997374738, guid: 559816d302764e243bf88d95d67c338d, type: 3}
+  - {fileID: 6181079905707996394, guid: a26ceb4d9bd46d041a0bf7a014316772, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

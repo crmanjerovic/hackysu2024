@@ -29,7 +29,7 @@ public class MoveCamera : MonoBehaviour
     void Update()
     {
         if (state == State.ENABLED) {
-            ct.position = new Vector3(pt.position.x - 5, pt.position.y + 7, pt.position.z - 5);
+            ct.position = new Vector3(pt.position.x - 5, pt.position.y + 8, pt.position.z - 5);
         }
     }
 

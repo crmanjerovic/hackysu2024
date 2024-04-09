@@ -9,6 +9,7 @@ public class Tile
     private List<string> possibleTiles;
     private List<(int x, int y)> directions = new List<(int x, int y)>();
     int x, y;
+    bool isCollapsed = false;
 
     public Tile(string[] tileNames, int x, int y)
     {
@@ -38,6 +39,11 @@ public class Tile
         return y;
     }
 
+    public bool getIsCollapsed()
+    {
+        return isCollapsed;
+    }
+
     public List<(int x, int y)> getDirections(int MAP_SIZE)
     {
         this.directions.Clear();
@@ -61,6 +67,15 @@ public class Tile
 
     public string collapse(Dictionary<string, int> weights)
     {
+        Debug.Log("No. possible: " + possibleTiles.Count);
+
+        if (possibleTiles.Count == 0) {
+            this.possibleTiles = new List<string> {"ground"};
+            entropy = 0;
+            isCollapsed = true;
+            return "ground";
+        }
+
         // method of getting random weighted selection
         // list of weights corresponds to possibleTiles by index
         List<int> possibleWeights = new List<int>();
@@ -70,6 +85,7 @@ public class Tile
         // sum weights and choose random in range of sum
         int weightSum = possibleWeights.Sum();
         int randomSum = Random.Range(0, weightSum);
+
         // get index by subtracting possibleWeights from sum
         // until sum is zero. that should give an index...
         int chosenIndex = 0;
@@ -84,14 +100,11 @@ public class Tile
         }
 
         // select weighted random from possibleTiles
-        string tileName;
-        if (entropy != 0)
-            tileName = possibleTiles[chosenIndex];
-        else
-            tileName = "ground";
+        string tileName = possibleTiles[chosenIndex];
 
         this.possibleTiles = new List<string> {tileName};
         entropy = 0;
+        isCollapsed = true;
         return tileName;
     }
 
@@ -119,7 +132,8 @@ public class Tile
                     if (tile1List[j].direction == direction) 
                     {
                         string tile2 = tile1List[j].tile2;
-                        possibleTilesInRules.Add(tile2);
+                        if (!possibleTilesInRules.Contains(tile2))
+                            possibleTilesInRules.Add(tile2);
                     }
                 }
             }
@@ -140,6 +154,7 @@ public class Tile
 
             this.possibleTiles = newPossibleTiles;
             entropy = this.possibleTiles.Count;
+            if (entropy == 0 && !isCollapsed) entropy = 1;
         }
 
         return modified;

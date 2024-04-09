@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class waveFunctionCollapse : MonoBehaviour
 {
-    public const int NUM_TILES = 24;
+    public const int NUM_TILES = 27;
     public const float TILE_SIZE = 2f;
     public const int MAP_SIZE = 30;
 
@@ -51,24 +51,18 @@ public class waveFunctionCollapse : MonoBehaviour
         if (!isFinished) {
             //GET SPACE WITH LOWEST ENTROPY--------------------------------------------------------------------------------
             //Iterate through, get lowest value that's not 0
-            int lowestValue = NUM_TILES + 1;
+            int lowestEntropy = NUM_TILES;
             for (int i = 0; i < MAP_SIZE; i++)
             {
                 for (int j = 0; j < MAP_SIZE; j++)
                 {
-                    if (mapTileInfo[i, j].getEntropy() < lowestValue && mapTileInfo[i, j].getEntropy() != 0)
-                        lowestValue = mapTileInfo[i, j].getEntropy();
+                    int tileEntropy = mapTileInfo[i, j].getEntropy();
+                    if (tileEntropy < lowestEntropy 
+                        && tileEntropy != 0)
+                    {
+                        lowestEntropy = tileEntropy;
+                    }
                 }
-            }
-
-            if (lowestValue > NUM_TILES) {
-                GameObject player = GameObject.FindWithTag("Player");
-                PlayerMove playerMove = player.GetComponent<PlayerMove>();
-                playerMove.enableCharacter();
-                GameObject camera = GameObject.FindWithTag("MainCamera");
-                MoveCamera moveCamera = camera.GetComponent<MoveCamera>();
-                moveCamera.enableCamera();
-                isFinished = true;
             }
 
             //iterate again, getting list of all spaces of that value
@@ -77,7 +71,7 @@ public class waveFunctionCollapse : MonoBehaviour
             {
                 for (int j = 0; j < MAP_SIZE; j++)
                 {
-                    if (mapTileInfo[i, j].getEntropy() == lowestValue)
+                    if (mapTileInfo[i, j].getEntropy() == lowestEntropy)
                     {
                         //contains a variable length list of coordinate pairs, corresponding to the tiles with the lowest entropy.
                         tilesWithLowestEntropy.Add((i, j)); 
@@ -87,6 +81,11 @@ public class waveFunctionCollapse : MonoBehaviour
 
             //COLLAPSE THE TILE AND PLACE IT------------------------------------------------------------------------------------------
             int whichTileToCollapse = Random.Range(0, tilesWithLowestEntropy.Count); //choose which tile to collapse randomly from list
+
+            Debug.Log("lowest: " + lowestEntropy);
+            Debug.Log("index:  " + whichTileToCollapse);
+            Debug.Log("length: " + tilesWithLowestEntropy.Count);
+
             (int x, int y) tileToCollapseLocation = tilesWithLowestEntropy[whichTileToCollapse];
             int ttcx = tileToCollapseLocation.x; //get the tile to collapse's coordinates
             int ttcy = tileToCollapseLocation.y;
@@ -138,16 +137,23 @@ public class waveFunctionCollapse : MonoBehaviour
             }
 
             //EVALUATE IF WE NEED TO CONTINUE----------------------------------------------------------------------------
-            int highestValue = 0;
-            for (int i = 0; i < MAP_SIZE; i++)
-            {
-                for (int j = 0; j < MAP_SIZE; j++)
-                {
-                    if (mapTileInfo[i, j].getEntropy() > highestValue)
-                        highestValue = mapTileInfo[i, j].getEntropy();
+            isFinished = true;
+            for (int i=0; i < MAP_SIZE; i++) {
+                for(int j=0; j < MAP_SIZE; j++) {
+                    if (!mapTileInfo[i, j].getIsCollapsed()) {
+                        isFinished = false;
+                    }
                 }
             }
-            if (highestValue == 0) isFinished = true;
+            if (isFinished)
+            {
+                GameObject player = GameObject.FindWithTag("Player");
+                PlayerMove playerMove = player.GetComponent<PlayerMove>();
+                playerMove.enableCharacter();
+                GameObject camera = GameObject.FindWithTag("MainCamera");
+                MoveCamera moveCamera = camera.GetComponent<MoveCamera>();
+                moveCamera.enableCamera();
+            }
         }
     }
 }
