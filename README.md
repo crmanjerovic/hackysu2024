@@ -1,5 +1,5 @@
 <h1>Wave Function Collapse Garden</h1> 
-<h3>HackYSU 2024 Submission</h3>
+<h3>HackYSU 2024 Submission - 1st Place</h3>
 
 <i>April 7th 2024</i>
 
