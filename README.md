@@ -6,6 +6,7 @@
 By Caroline Manjerovic and Cecil Manjerovic
 
 <h4>Unity ver. 2022.3.23f1, Uses a simple implementation of a wave function collapse algorithm for world generation.</h4>
+<p>Project at time of submission can be found <a href="https://github.com/crmanjerovic/hackysu2024/tree/6eaa502664bbde96921ca9b906fb9c110a659a97">here</a>.</p>
 
 <img src="https://i.imgur.com/PR7vU5v.gif" alt="Gibbon's World 0" width="600">
 <img src="https://i.imgur.com/Uf24hkN.gif" alt="Gibbon's World 1" width="600">
